@@ -174,26 +174,29 @@ class _AccountPageState extends State<AccountPage> {
                         ),
                       ),
                     ),
-                  SizedBox(height: sizeheight * 0.01),
-                  if (userData != null)  // Facebook data null
-                  /// Facebook Name
-                  Text(LogInSharedPreferences.getFbName.toString(), style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.white))
-                  else
-                  /// Google Name
-                  Text(LogInSharedPreferences.getGlName.toString(), style: const TextStyle(color: Colors.white)),
 
-                  if (userData != null) // Facebook data null
-                  /// Facebook Email
-                  Text(LogInSharedPreferences.getFbEmail.toString(), style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.white))
-                  else
-                  /// Google Email
-                  Text(LogInSharedPreferences.getGlEmail.toString(), style: const TextStyle(color: Colors.white)),
+                  SizedBox(height: sizeheight * 0.01),
+                  if (LogInSharedPreferences.getFbName != '' &&
+                      LogInSharedPreferences.getFbName != null)
+                    Text(
+                        LogInSharedPreferences.getFbName.toString(),style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.white))
+                  else if (LogInSharedPreferences.getGlName != '' &&
+                      LogInSharedPreferences.getGlName != null)
+                    Text(
+                        LogInSharedPreferences.getGlName.toString(),style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.white)),
+                  if (LogInSharedPreferences.getFbEmail != '' &&
+                      LogInSharedPreferences.getFbEmail != null)
+                    Text(
+                        LogInSharedPreferences.getFbEmail.toString(),style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.white))
+                  else if (LogInSharedPreferences.getGlEmail != '' &&
+                      LogInSharedPreferences.getGlEmail != null)
+                    Text(
+                        LogInSharedPreferences.getGlEmail.toString(),style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.white)),
 
                 ],
               ),
             ),
-            // Text(LogInSharedPreferences.getGlName.toString()),
-            // Text(LogInSharedPreferences.getGlEmail.toString()),
+
             // Text(LogInSharedPreferences.getFbName.toString()),
             // Text(LogInSharedPreferences.getFbEmail.toString()),
 

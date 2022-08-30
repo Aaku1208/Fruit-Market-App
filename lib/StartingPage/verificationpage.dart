@@ -24,9 +24,9 @@ class _VerificationPageState extends State<VerificationPage> {
 
   ThemeMode get themeMode => darkMode ? ThemeMode.dark : ThemeMode.light;
 
-  String getName = "";
-  String getEmail = "";
-  String getPhoto = "";
+  String getFbName = "";
+  String getFbEmail = "";
+  String getFbPhoto = "";
 
   String getGlName = "";
   String getGlEmail = "";
@@ -36,9 +36,9 @@ class _VerificationPageState extends State<VerificationPage> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    getName = LogInSharedPreferences.getFbName.toString();
-    getEmail = LogInSharedPreferences.getFbEmail.toString();
-    getPhoto = LogInSharedPreferences.getFbPhoto.toString();
+    getFbName = LogInSharedPreferences.getFbName.toString();
+    getFbEmail = LogInSharedPreferences.getFbEmail.toString();
+    getFbPhoto = LogInSharedPreferences.getFbPhoto.toString();
 
     getGlName = LogInSharedPreferences.getGlName.toString();
     getGlEmail = LogInSharedPreferences.getGlEmail.toString();
@@ -158,17 +158,14 @@ class _VerificationPageState extends State<VerificationPage> {
           FacebookAuthButton(
             onPressed: () async {
               await fbLogin();
-
+              //print(userData!);
               Navigator.of(context).pushAndRemoveUntil(
                   MaterialPageRoute(builder: (context) => const WelcomePage()),
                   (Route<dynamic> route) => false);
-              LogInSharedPreferences.setFbName = userData!['Name'];
-              LogInSharedPreferences.setFbEmail = userData!['Email'];
-              LogInSharedPreferences.setFbPhoto =
-                  userData!['picture']['data']['url'];
-              print('111111${LogInSharedPreferences.getFbName}');
-              print('222222${LogInSharedPreferences.getFbEmail}');
-            },
+              LogInSharedPreferences.setFbName = userData!['name'].toString();
+              LogInSharedPreferences.setFbEmail = userData!['email'].toString();
+              LogInSharedPreferences.setFbPhoto = userData!['picture']['data']['url'];
+              },
             themeMode: themeMode,
             isLoading: isLoading,
             style: AuthButtonStyle(

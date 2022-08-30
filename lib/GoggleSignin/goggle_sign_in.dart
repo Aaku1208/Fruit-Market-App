@@ -26,7 +26,15 @@ Map<String, dynamic>? userData;
 
 /// Facebook
 fbLogin() async {
-  await FacebookAuth.instance.login();
+  final LoginResult result = await FacebookAuth.instance.login();
+  if (result.status == LoginStatus.success) {
+    // you are logged
+    final AccessToken accessToken = result.accessToken!;
+  } else {
+    print(result.status);
+    print(result.message);
+  }
+  final AccessToken? accessToken = await FacebookAuth.instance.accessToken;
   final user = await FacebookAuth.instance.getUserData();
   userData = user;
 }
