@@ -149,7 +149,7 @@ class MyApp extends StatelessWidget {
 
 ```
 
-* For Project: Github link for project 
+* For Project: [Github](https://github.com/Aaku1208/Fruit-Market-App.git)
 
 
 
