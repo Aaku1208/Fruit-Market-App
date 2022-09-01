@@ -1,7 +1,4 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'package:fruit_market2/PhoneLoadingVarification/varification_done.dart';
 import 'package:loading_indicator/loading_indicator.dart';
 
 class LoadingScreen extends StatefulWidget {
