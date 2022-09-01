@@ -49,6 +49,7 @@ class _NameAddressPageState extends State<NameAddressPage> {
                     ],
                   ),
                   Padding(
+
                     padding: const EdgeInsets.all(8),
                     child: Column(
                       children: [
