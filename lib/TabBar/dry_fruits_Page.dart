@@ -34,7 +34,7 @@ class _DryFruitsPageState extends State<DryFruitsPage> {
                         fontWeight: FontWeight.bold),
                     children: [
                       TextSpan(
-                        text: "   (20% Off)",
+                        text: "\t\t\t(20% Off)",
                         style: TextStyle(
                             color: myColor,
                             fontWeight: FontWeight.bold,
@@ -58,7 +58,7 @@ class _DryFruitsPageState extends State<DryFruitsPage> {
 
               /// ListView.Builder
               SizedBox(
-                height: sizeheight * .42,
+                height: 282,
                 //h 280,
                 child: ListView.builder(
                   itemCount: indehiscentDryFruits.length,
@@ -85,7 +85,7 @@ class _DryFruitsPageState extends State<DryFruitsPage> {
                         fontWeight: FontWeight.bold),
                     children: [
                       TextSpan(
-                        text: "   (10% Off)",
+                        text: "\t\t\t(10% Off)",
                         style: TextStyle(
                             color: myColor,
                             fontWeight: FontWeight.bold,
@@ -109,7 +109,7 @@ class _DryFruitsPageState extends State<DryFruitsPage> {
 
               /// ListView.Builder
               SizedBox(
-                height: sizeheight * .42,
+                height: 282,
                 child: ListView.builder(
                   itemCount: mixedDryFruitsPack.length,
                   scrollDirection: Axis.horizontal,
@@ -135,7 +135,7 @@ class _DryFruitsPageState extends State<DryFruitsPage> {
                         fontWeight: FontWeight.bold),
                     children: [
                       TextSpan(
-                        text: "   (20% Off)",
+                        text: "\t\t\t(20% Off)",
                         style: TextStyle(
                             color: myColor,
                             fontWeight: FontWeight.bold,
@@ -158,7 +158,7 @@ class _DryFruitsPageState extends State<DryFruitsPage> {
               ),
               /// ListView.Builder
               SizedBox(
-                height: sizeheight * .42,
+                height: 282,
                 child: ListView.builder(
                   itemCount: dehiscentDryFruits.length,
                   scrollDirection: Axis.horizontal,
@@ -184,7 +184,7 @@ class _DryFruitsPageState extends State<DryFruitsPage> {
                         fontWeight: FontWeight.bold),
                     children: [
                       TextSpan(
-                        text: "   (5% Off)",
+                        text: "\t\t\t(5% Off)",
                         style: TextStyle(
                             color: myColor,
                             fontWeight: FontWeight.bold,
@@ -207,7 +207,7 @@ class _DryFruitsPageState extends State<DryFruitsPage> {
               ),
               /// ListView.Builder
               SizedBox(
-                height: sizeheight * .42,
+                height: 300,
                 child: ListView.builder(
                   itemCount: kashmiriDryFruits.length,
                   scrollDirection: Axis.horizontal,

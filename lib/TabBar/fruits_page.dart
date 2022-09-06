@@ -29,7 +29,7 @@ class _FruitsPageState extends State<FruitsPage> {
                   style: const TextStyle(fontSize: 15,color: Colors.black,fontWeight: FontWeight.bold),
                   children: [
                     TextSpan(
-                      text: "   (20% Off)",
+                      text: "\t\t\t(20% Off)",
                       style: TextStyle(color: myColor,fontWeight: FontWeight.bold,fontSize: 13),
                     ),
                   ],
@@ -46,7 +46,7 @@ class _FruitsPageState extends State<FruitsPage> {
 
             /// ListView.Builder
             SizedBox(
-              height: sizeheight * .42,
+              height: 282,
               child: ListView.builder(
                 itemCount: organicFruits.length,
                 scrollDirection: Axis.horizontal,
@@ -69,7 +69,7 @@ class _FruitsPageState extends State<FruitsPage> {
                   style: const TextStyle(fontSize: 15,color: Colors.black,fontWeight: FontWeight.bold),
                   children: [
                     TextSpan(
-                      text: "   (10% Off)",
+                      text: "\t\t\t(10% Off)",
                       style: TextStyle(color: myColor,fontWeight: FontWeight.bold,fontSize: 13),
                     ),
                   ],
@@ -85,7 +85,7 @@ class _FruitsPageState extends State<FruitsPage> {
             ),
             /// ListView.Builder
             SizedBox(
-              height: sizeheight * .42,
+              height: 282,
               child: ListView.builder(
                 itemCount: mixedFruitsPack.length,
                 scrollDirection: Axis.horizontal,
@@ -108,7 +108,7 @@ class _FruitsPageState extends State<FruitsPage> {
                   style: const TextStyle(fontSize: 15,color: Colors.black,fontWeight: FontWeight.bold),
                   children: [
                     TextSpan(
-                      text: "   (20% Off)",
+                      text: "\t\t\t(20% Off)",
                       style: TextStyle(color: myColor,fontWeight: FontWeight.bold,fontSize: 13),
                     ),
                   ],
@@ -124,7 +124,7 @@ class _FruitsPageState extends State<FruitsPage> {
             ),
             /// ListView.Builder
             SizedBox(
-              height: sizeheight * .42,
+              height: 282,
               child: ListView.builder(
                 itemCount: stoneFruits.length,
                 scrollDirection: Axis.horizontal,
@@ -147,7 +147,7 @@ class _FruitsPageState extends State<FruitsPage> {
                   style: const TextStyle(fontSize: 15,color: Colors.black,fontWeight: FontWeight.bold),
                   children: [
                     TextSpan(
-                      text: "   (5% Off)",
+                      text: "\t\t\t(5% Off)",
                       style: TextStyle(color: myColor,fontWeight: FontWeight.bold,fontSize: 13),
                     ),
                   ],
@@ -163,7 +163,7 @@ class _FruitsPageState extends State<FruitsPage> {
             ),
             /// ListView.Builder
             SizedBox(
-              height: sizeheight * .42,
+              height: 300,
               child: ListView.builder(
                 itemCount: melons.length,
                 scrollDirection: Axis.horizontal,

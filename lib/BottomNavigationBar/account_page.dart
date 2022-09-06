@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
@@ -13,7 +12,6 @@ import 'package:fruit_market2/StartingPage/verificationpage.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:star_menu/star_menu.dart';
-
 import 'All Account Pages/My Orders/my_orders.dart';
 
 class AccountPage extends StatefulWidget {
@@ -24,9 +22,9 @@ class AccountPage extends StatefulWidget {
 }
 
 class _AccountPageState extends State<AccountPage> {
-
   late List<Widget> subEntries;
   File? file;
+  String? getPofilePhoto;
 
   pickImage() async {
     ImagePicker pickImg = ImagePicker();
@@ -46,6 +44,7 @@ class _AccountPageState extends State<AccountPage> {
   void initState() {
     super.initState();
     subEntries = subMenuEntries();
+    getPofilePhoto = LogInSharedPreferences.getPofilePhoto.toString();
   }
 
   List<Widget> subMenuEntries() {
@@ -56,50 +55,49 @@ class _AccountPageState extends State<AccountPage> {
           setState(() {});
         },
         child: Container(
-            width: 85,
-            height: 40,
-            decoration: BoxDecoration(
-                color: myColor, borderRadius: BorderRadius.circular(10)),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
-                Icon(Icons.camera_alt_outlined,color: Colors.white),
-                SizedBox(width: 4),
-                Text('Camera',style: TextStyle(color: Colors.white)),
-              ],
-            ),
+          width: 85,
+          height: 40,
+          decoration: BoxDecoration(
+              color: myColor, borderRadius: BorderRadius.circular(10)),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const [
+              Icon(Icons.camera_alt_outlined, color: Colors.white),
+              SizedBox(width: 4),
+              Text('Camera', style: TextStyle(color: Colors.white)),
+            ],
+          ),
         ),
       ),
       const SizedBox(height: 10),
       GestureDetector(
         onTap: () async {
           await pickImage();
+          LogInSharedPreferences.setPofilePhoto=file!.path.toString();
           setState(() {});
         },
         child: Container(
-            width: 85,
-            height: 40,
-            decoration: BoxDecoration(
-                color: myColor, borderRadius: BorderRadius.circular(10)),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
-                Icon(Icons.image_outlined,color: Colors.white),
-                SizedBox(width: 4),
-                Text('Gallery',style: TextStyle(color: Colors.white)),
-              ],
-            ),
+          width: 85,
+          height: 40,
+          decoration: BoxDecoration(
+              color: myColor, borderRadius: BorderRadius.circular(10)),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const [
+              Icon(Icons.image_outlined, color: Colors.white),
+              SizedBox(width: 4),
+              Text('Gallery', style: TextStyle(color: Colors.white)),
+            ],
+          ),
         ),
       ),
     ];
   }
 
-
   @override
   Widget build(BuildContext context) {
     double sizeheight = MediaQuery.of(context).size.height;
     double sizewidth = MediaQuery.of(context).size.width;
-    //final user = FirebaseAuth.instance.currentUser;
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -114,23 +112,27 @@ class _AccountPageState extends State<AccountPage> {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Padding(
-                        padding: EdgeInsets.only(top: sizeheight*0.05, right: sizewidth*0.06),
+                        padding: EdgeInsets.only(
+                            top: sizeheight * 0.05, right: sizewidth * 0.06),
                         child: Align(
                           alignment: Alignment.topRight,
                           child: StarMenu(
                             params: const StarMenuParameters(
-                              linearShapeParams:
-                              LinearShapeParams(alignment: LinearAlignment.right),
+                              linearShapeParams: LinearShapeParams(
+                                  alignment: LinearAlignment.right),
                               shape: MenuShape.linear,
                               openDurationMs: 1200,
                             ),
                             items: subEntries,
-                            child: const Icon(Icons.edit_note_rounded,color: Colors.white),
+                            child: const Icon(Icons.edit_note_rounded,
+                                color: Colors.white),
                           ),
                         ),
                       ),
                     ],
                   ),
+
+
                   if (userData != null) // Facebook data null
                     Center(
                       child: CircleAvatar(
@@ -141,18 +143,18 @@ class _AccountPageState extends State<AccountPage> {
                           width: 100,
                           decoration: BoxDecoration(
                               image: DecorationImage(
-                                  image: file == null
+                                  image: LogInSharedPreferences.getPofilePhoto == null
                                       ? NetworkImage(
-                                     LogInSharedPreferences.getFbPhoto.toString(),
-                                  )
-                                      : FileImage(File(file!.path))
-                                  as ImageProvider,
+                                          LogInSharedPreferences.getFbPhoto.toString())
+                                      : FileImage(
+                                      File(LogInSharedPreferences.getPofilePhoto.toString()))
+                                          as ImageProvider,
                                   fit: BoxFit.fill),
                               shape: BoxShape.circle),
                         ),
                       ),
                     )
-                  else if (userPhoto != null)
+                  else if (userPhoto != null) // Google data null
                     Center(
                       child: CircleAvatar(
                         radius: 53,
@@ -162,36 +164,84 @@ class _AccountPageState extends State<AccountPage> {
                           width: 100,
                           decoration: BoxDecoration(
                               image: DecorationImage(
-                                  image: file == null
+                                  image: LogInSharedPreferences.getPofilePhoto == null
                                       ? NetworkImage(
                                       LogInSharedPreferences.getGlPhoto.toString())
-                                      : FileImage(File(file!.path))
-                                  as ImageProvider,
+                                      : FileImage(
+                                      File(LogInSharedPreferences.getPofilePhoto.toString()))
+                                          as ImageProvider,
                                   fit: BoxFit.fill
-                                // image: NetworkImage(userPhoto!),
-                              ),
+                                  // image: NetworkImage(userPhoto!),
+                                  ),
                               shape: BoxShape.circle),
                         ),
                       ),
-                    ),
+                    )
+                  /// OTP
+                  else if (userPhoto != null)
+                      Center(
+                        child: CircleAvatar(
+                          radius: 53,
+                          backgroundColor: Colors.blueAccent,
+                          child: Container(
+                            height: 100,
+                            width: 100,
+                            decoration: BoxDecoration(
+                                image: DecorationImage(
+                                    image: file == null
+                                        ? NetworkImage("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWTercVL7lubQltMzul0sIR21CTX1fJUaIww&usqp=CAU")
+                                        : FileImage(File(file!.path))
+                                    as ImageProvider,
+                                    fit: BoxFit.fill,
+                                  // image: NetworkImage(userPhoto!),
+                                ),
+                                shape: BoxShape.circle),
+                          ),
+                        ),
+                      ),
+
 
                   SizedBox(height: sizeheight * 0.01),
                   if (LogInSharedPreferences.getFbName != '' &&
                       LogInSharedPreferences.getFbName != null)
-                    Text(
-                        LogInSharedPreferences.getFbName.toString(),style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.white))
+                    Text(LogInSharedPreferences.getFbName.toString(),
+                        style: const TextStyle(
+                            fontWeight: FontWeight.bold, color: Colors.white))
                   else if (LogInSharedPreferences.getGlName != '' &&
                       LogInSharedPreferences.getGlName != null)
-                    Text(
-                        LogInSharedPreferences.getGlName.toString(),style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.white)),
+                    Text(LogInSharedPreferences.getGlName.toString(),
+                        style: const TextStyle(
+                            fontWeight: FontWeight.bold, color: Colors.white))
+
+                  /// OTP First & Second Name
+                  else if(LogInSharedPreferences.getFName != ''&&
+                        LogInSharedPreferences.getFName != null &&
+                        LogInSharedPreferences.getSName != ''&&
+                        LogInSharedPreferences.getSName != null)
+                      Text('${LogInSharedPreferences.getFName}\t'
+                          '${LogInSharedPreferences.getSName}',
+                          style: const TextStyle(
+                              fontWeight: FontWeight.bold, color: Colors.white)),
+
                   if (LogInSharedPreferences.getFbEmail != '' &&
                       LogInSharedPreferences.getFbEmail != null)
-                    Text(
-                        LogInSharedPreferences.getFbEmail.toString(),style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.white))
+                    Text(LogInSharedPreferences.getFbEmail.toString(),
+                        style: const TextStyle(
+                            fontWeight: FontWeight.bold, color: Colors.white))
                   else if (LogInSharedPreferences.getGlEmail != '' &&
                       LogInSharedPreferences.getGlEmail != null)
-                    Text(
-                        LogInSharedPreferences.getGlEmail.toString(),style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.white)),
+                    Text(LogInSharedPreferences.getGlEmail.toString(),
+                        style: const TextStyle(
+                            fontWeight: FontWeight.bold, color: Colors.white))
+
+                  /// OTP Email
+                  else if (LogInSharedPreferences.getOEmail != '' &&
+                        LogInSharedPreferences.getOEmail != null)
+                      Text(LogInSharedPreferences.getOEmail.toString(),
+                          style: const TextStyle(
+                              fontWeight: FontWeight.bold, color: Colors.white))
+
+
 
                 ],
               ),
@@ -200,12 +250,11 @@ class _AccountPageState extends State<AccountPage> {
             // Text(LogInSharedPreferences.getFbName.toString()),
             // Text(LogInSharedPreferences.getFbEmail.toString()),
 
-
             SizedBox(height: sizeheight * 0.02),
             GestureDetector(
               child: ListTile(
                 contentPadding: const EdgeInsets.only(left: 25),
-                leading: Icon(Icons.shopping_bag_rounded,color: myColor),
+                leading: Icon(Icons.shopping_bag_rounded, color: myColor),
                 title: const Text("My Orders"),
               ),
               onTap: () {
@@ -226,22 +275,22 @@ class _AccountPageState extends State<AccountPage> {
                 leading: Icon(Icons.settings, color: myColor),
                 title: const Text("Settings"),
               ),
-              onTap:  () {
+              onTap: () {
                 Navigator.of(context).push(
                     MaterialPageRoute(builder: (context) => const Settings()));
               },
             ),
             const Divider(),
-                ListTile(
-                contentPadding: const EdgeInsets.only(left: 25),
-                  leading: Icon(Icons.shopping_cart, color: myColor),
-                  title: const Text("My Cart"),
-                ),
-                const Divider(),
-                ListTile(
-                contentPadding: const EdgeInsets.only(left: 25),
-                  leading: Icon(Icons.star_rate_sharp, color: myColor),
-                  title: const Text("Rate us"),
+            ListTile(
+              contentPadding: const EdgeInsets.only(left: 25),
+              leading: Icon(Icons.shopping_cart, color: myColor),
+              title: const Text("My Cart"),
+            ),
+            const Divider(),
+            ListTile(
+              contentPadding: const EdgeInsets.only(left: 25),
+              leading: Icon(Icons.star_rate_sharp, color: myColor),
+              title: const Text("Rate us"),
             ),
             const Divider(),
             ListTile(
@@ -280,12 +329,19 @@ class _AccountPageState extends State<AccountPage> {
                 LogInSharedPreferences.setGlEmail = "";
                 LogInSharedPreferences.setGlPhoto = "";
 
-                Fluttertoast.showToast(msg: "Logout Successfully", timeInSecForIosWeb: 2);
-                Navigator.of(context).pushAndRemoveUntil(
-                    MaterialPageRoute(builder: (context) => const VerificationPage()),
-                        (Route<dynamic> route) => false);
-                setState(() {});
+                LogInSharedPreferences.setFName = "";
+                LogInSharedPreferences.setSName = "";
+                LogInSharedPreferences.setOEmail = "";
+                LogInSharedPreferences.setOAddress = "";
 
+                LogInSharedPreferences.setPofilePhoto = "";
+
+                Navigator.of(context).pushAndRemoveUntil(
+                    MaterialPageRoute(
+                        builder: (context) => const VerificationPage()),
+                    (Route<dynamic> route) => false);
+                Fluttertoast.showToast(msg: "Logout Successfully", timeInSecForIosWeb: 2);
+                setState(() {});
               },
             ),
           ],
@@ -307,5 +363,3 @@ googleLogOut() async {
   userPhoto = "";
   await GoogleSignIn().signOut();
 }
-
-

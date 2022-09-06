@@ -5,7 +5,7 @@ import 'package:givestarreviews/givestarreviews.dart';
 bool favorite=true;
 class Vegetables{
   Widget model1(image,text1,text2) {
-    return  Padding(
+    return Padding(
       padding: const EdgeInsets.all(10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

@@ -77,7 +77,7 @@ class _VerificationPageState extends State<VerificationPage> {
           /// Phone Number TextField
           GestureDetector(
             onTap: () {
-              Navigator.of(context).pushReplacement(MaterialPageRoute(
+              Navigator.of(context).push(MaterialPageRoute(
                   builder: (context) => const PhoneNoAndOTP()));
             },
             child: Container(

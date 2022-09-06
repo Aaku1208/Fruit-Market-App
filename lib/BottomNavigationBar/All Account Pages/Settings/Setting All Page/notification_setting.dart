@@ -28,7 +28,7 @@ class _NotificationSettingState extends State<NotificationSetting> {
           SizedBox(height: sizeheight * 0.01),
           ListTile(
             leading: Icon(Icons.notifications_rounded,color: myColor,size: 30),
-            title: const Text("Pramotional Notifications",style: TextStyle(color: Colors.black)),
+            title: const Text("My Account",style: TextStyle(color: Colors.black)),
             subtitle: Container(
                 margin: EdgeInsets.only(top: 7),
                 child: const Text("You will receive daily updates")),

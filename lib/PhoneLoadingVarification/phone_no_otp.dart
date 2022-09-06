@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:fruit_market2/PhoneLoadingVarification/name_address.dart';
 import 'package:pinput/pinput.dart';
 
@@ -22,6 +23,7 @@ class _PhoneNoAndOTPState extends State<PhoneNoAndOTP> {
   TextEditingController  phoneController = TextEditingController();
   TextEditingController  otpController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
+  final _otpformKey = GlobalKey<FormState>();
 
   LoginScreen currentState = LoginScreen.SHOW_MOBILE_ENTER_WIDGET;
 
@@ -41,6 +43,9 @@ class _PhoneNoAndOTPState extends State<PhoneNoAndOTP> {
       {
 
         Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) => const NameAddressPage()));
+        Fluttertoast.showToast(
+            msg: "Verification Successfully please enter your details", timeInSecForIosWeb: 2);
+
       }
     } on FirebaseAuthException catch (e) {
 
@@ -214,7 +219,7 @@ class _PhoneNoAndOTPState extends State<PhoneNoAndOTP> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Form(
-                key: _formKey,
+                key: _otpformKey,
                 child: Pinput(
                   length: 6,
                   defaultPinTheme: defaultPinTheme,
@@ -243,8 +248,8 @@ class _PhoneNoAndOTPState extends State<PhoneNoAndOTP> {
                 minWidth: 325,
                 height: 44,
                 color: myColor,
-                onPressed: () {
-                  if (_formKey.currentState!.validate()) {
+                onPressed: () async{
+                  if (_otpformKey.currentState!.validate()) {
                     AuthCredential phoneAuthCredential = PhoneAuthProvider.credential(verificationId: verificationID, smsCode: otpController.text);
                     signInWithPhoneAuthCred(phoneAuthCredential);
                   }

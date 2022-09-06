@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:fruit_market2/Shared%20Preferences%20class/login_shared_preferences.dart';
 
 import '../../../../Colors/color.dart';
 
@@ -50,7 +52,12 @@ class _ChangeAddressState extends State<ChangeAddress> {
               maxLines: 5,// when user presses enter it will adapt to it
               autofocus: true,
               textInputAction: TextInputAction.done,
+              // inputFormatters: [
+              //   TextInputFormatter.withFunction((oldValue, newValue) => null)
+              // ],
               decoration: InputDecoration(
+
+                hintText: LogInSharedPreferences.getOAddress,
                 enabledBorder: const OutlineInputBorder(
                   borderRadius: BorderRadius.all(Radius.circular(10)),
                   borderSide: BorderSide(color: Colors.grey),

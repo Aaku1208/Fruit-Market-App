@@ -24,6 +24,7 @@ class _HomePageState extends State<HomePage> {
       child: SafeArea(
         child: Scaffold(
           body: ListView(
+            physics: NeverScrollableScrollPhysics(),
             children: [
               Column(
                 children: [
@@ -122,7 +123,6 @@ class _HomePageState extends State<HomePage> {
                         VegeTablesPage(),
                         FruitsPage(),
                         DryFruitsPage(),
-
                       ],
                     ),
                   ),

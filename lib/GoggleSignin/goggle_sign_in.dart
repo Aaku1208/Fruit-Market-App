@@ -40,6 +40,6 @@ fbLogin() async {
 }
 
 
-String userEmail='';
-String? userName='';
-String? userPhoto='';
+String userEmail = '';
+String? userName = '';
+String? userPhoto = '';

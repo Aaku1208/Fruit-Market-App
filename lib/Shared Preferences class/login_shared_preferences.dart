@@ -10,9 +10,40 @@ class LogInSharedPreferences {
   static String glEmail = 'Email';
   static String glPhoto = 'Glphoto';
 
+  static String firstName = 'FirstName';
+  static String secondName = 'secondName';
+  static String OtpEmail = 'OtpEmail';
+  static String OtpAddress = 'OtpAddress';
+
+  static String ProfileImage = 'ProfileImage';
+
   static init() async => pref = await SharedPreferences.getInstance();
 
-  /// FB
+  /// Image
+  static set setPofilePhoto(value) => pref!.setString(ProfileImage, value);
+
+  static String? get getPofilePhoto => pref!.getString(ProfileImage);
+
+
+  /// OTP
+  static set setFName(value) => pref!.setString(firstName, value);
+
+  static String? get getFName => pref!.getString(firstName);
+
+  static set setSName(value) => pref!.setString(secondName, value);
+
+  static String? get getSName => pref!.getString(secondName);
+
+  static set setOEmail(value) => pref!.setString(OtpEmail, value);
+
+  static String? get getOEmail => pref!.getString(OtpEmail);
+
+  static set setOAddress(value) => pref!.setString(OtpAddress, value);
+
+  static String? get getOAddress => pref!.getString(OtpAddress);
+
+
+  /// Facebook
   static set setFbName(value) => pref!.setString(fbName, value);
 
   static String? get getFbName => pref!.getString(fbName);
@@ -25,7 +56,7 @@ class LogInSharedPreferences {
 
   static String? get getFbPhoto => pref!.getString(fbPhoto);
 
-  /// GG
+  /// Google
   static set setGlName(value) => pref!.setString(glName, value);
 
   static String? get getGlName => pref!.getString(glName);
@@ -37,4 +68,5 @@ class LogInSharedPreferences {
   static set setGlPhoto(value) => pref!.setString(glPhoto, value);
 
   static String? get getGlPhoto => pref!.getString(glPhoto);
+
 }

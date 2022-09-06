@@ -2,6 +2,22 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+<!-- Put me in the [my_project]/ios/Runner/Info.plist file -->
+<!-- Google Sign-in Section -->
+<key>CFBundleURLTypes</key>
+<array>
+	<dict>
+		<key>CFBundleTypeRole</key>
+		<string>Editor</string>
+		<key>CFBundleURLSchemes</key>
+		<array>
+			<!-- TODO Replace this value: -->
+			<!-- Copied from GoogleService-Info.plist key REVERSED_CLIENT_ID -->
+			<string>com.googleusercontent.apps.277365679061-8bcj9kuo2601vl4256im0id66ak0fpmo</string>
+		</array>
+	</dict>
+</array>
+<!-- End of the Google Sign-in Section -->
 <key>NSPhotoLibraryUsageDescription</key>
   <string>Upload images for screen background</string>
   <key>NSCameraUsageDescription</key>
@@ -51,17 +67,7 @@
 	<false/>
 	<key>CADisableMinimumFrameDurationOnPhone</key>
 	<true/>
-	<key>CFBundleURLTypes</key>
-	<array>
-		<dict>
-			<key>CFBundleURLName</key>
-			<string>com.googleusercontent.apps.277365679061-8bcj9kuo2601vl4256im0id66ak0fpmo</string>
-			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>fb5314886415227294</string>
-			</array>
-		</dict>
-	</array>
+
 	<key>FacebookAppID</key>
 	<string>5314886415227294</string>
 	<key>FacebookClientToken</key>

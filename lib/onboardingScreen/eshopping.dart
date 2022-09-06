@@ -4,14 +4,14 @@ import '../Colors/color.dart';
 import '../StartingPage/verificationpage.dart';
 
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class OnBoardingScreen extends StatefulWidget {
+  const OnBoardingScreen({Key? key}) : super(key: key);
 
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  _OnBoardingScreenState createState() => _OnBoardingScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _OnBoardingScreenState extends State<OnBoardingScreen> {
 
   List<SliderModel> slides = <SliderModel>[];
   int currentIndex = 0;

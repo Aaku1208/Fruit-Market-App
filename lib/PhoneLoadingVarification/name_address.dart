@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-
 import '../Colors/color.dart';
 import '../Pages/welcome_page.dart';
+import '../Shared Preferences class/login_shared_preferences.dart';
 
 class NameAddressPage extends StatefulWidget {
   const NameAddressPage({Key? key}) : super(key: key);
@@ -19,6 +19,20 @@ class _NameAddressPageState extends State<NameAddressPage> {
   final TextEditingController secondNameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController addressController = TextEditingController();
+
+  String getFName = "";
+  String getSName = "";
+  String getOEmail = "";
+  String getOAddress = "";
+
+  @override
+  void initState() {
+    super.initState();
+    getFName = LogInSharedPreferences.getFName.toString();
+    getSName = LogInSharedPreferences.getSName.toString();
+    getOEmail = LogInSharedPreferences.getOEmail.toString();
+    getOAddress = LogInSharedPreferences.getOAddress.toString();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -327,6 +341,13 @@ class _NameAddressPageState extends State<NameAddressPage> {
                 if (_formKey.currentState!.validate()) {
                   Navigator.of(context).pushReplacement(MaterialPageRoute(
                       builder: (context) => const WelcomePage()));
+                  // Fluttertoast.showToast(
+                  //     msg: "", timeInSecForIosWeb: 2);
+
+                  LogInSharedPreferences.setFName = firstNameController.text;
+                  LogInSharedPreferences.setSName = secondNameController.text;
+                  LogInSharedPreferences.setOEmail = emailController.text;
+                  LogInSharedPreferences.setOAddress = addressController.text;
                 }
               },
               child: Text(
