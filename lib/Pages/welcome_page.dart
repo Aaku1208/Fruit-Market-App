@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:fruit_market2/Colors/color.dart';
-import '../BottomNavigationBar/account_page.dart';
-import '../BottomNavigationBar/favorite_page.dart';
-import '../BottomNavigationBar/home_page.dart';
-import '../BottomNavigationBar/shopping_cart.dart';
+import '../BottomNavigationBar/My Account/account_page.dart';
+import '../BottomNavigationBar/Favorite/favorite_page.dart';
+import '../BottomNavigationBar/Home/home_page.dart';
+import '../BottomNavigationBar/Shopping Cart/shopping_cart.dart';
 
 class WelcomePage extends StatefulWidget {
   const WelcomePage({Key? key}) : super(key: key);

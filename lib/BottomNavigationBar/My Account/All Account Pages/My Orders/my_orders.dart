@@ -21,26 +21,30 @@ class _MyOrdersState extends State<MyOrders> {
           backgroundColor: myColor,
           title: Text("My Orders"),
       ),
-      body: ListView.separated(
-        itemCount: Myorderstext.length,
-        scrollDirection: Axis.vertical,
-        itemBuilder: (context, index) {
-          return Padding(
-            padding: const EdgeInsets.all(12),
-            child: Row(
+      body: Padding(
+        padding: const EdgeInsets.only(top: 7,left: 2),
+        child: ListView.separated(
+          physics: BouncingScrollPhysics(),
+          itemCount: Myorderstext.length,
+          scrollDirection: Axis.vertical,
+          itemBuilder: (context, index) {
+            return Row(
               children: [
                 Expanded(
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      image: DecorationImage(
-                        image: NetworkImage(
-                          Myorderstext[index]['image'],),
-                        fit: BoxFit.cover,
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 15,top: 9,right: 15,bottom: 9),
+                    child: Container(
+                      height: 121,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(17),
+                        image: DecorationImage(
+                          image: NetworkImage(
+                            Myorderstext[index]['image'],),
+                          fit: BoxFit.cover,
+                        ),
                       ),
+                      child: Text(""),
                     ),
-                    height: 121,
-                    child: Text(""),
                   ),
                 ),
                 Expanded(
@@ -54,27 +58,31 @@ class _MyOrdersState extends State<MyOrders> {
                           padding: const EdgeInsets.only(left: 10),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
                               Text(Myorderstext[index]['subtitle1'],
                                   style: TextStyle(
                                       color: Colors.black,
                                       fontWeight: FontWeight.w500)),
-                              GiveStarReviews(
-                                starData: [
-                                  GiveStarData(
-                                    text: "",
-                                    onChanged: (rate) {},
-                                    size: 20,
-                                    activeStarColor: const Color(0xffA6A1A1),
-                                    inactiveStarColor: const Color(0xffA6A1A1),
-                                  ),
-                                ],
+                              Padding(
+                                padding: const EdgeInsets.only(right: 20),
+                                child: GiveStarReviews(
+                                  starData: [
+                                    GiveStarData(
+                                      text: "",
+                                      onChanged: (rate) {},
+                                      size: 20,
+                                      spaceBetween: 3,
+                                      activeStarColor: const Color(0xffA6A1A1),
+                                      inactiveStarColor: const Color(0xffA6A1A1),
+                                    ),
+                                  ],
+                                ),
                               ),
-                              SizedBox(height: 3),
+                              SizedBox(height: 6),
                               Text('Rate this Product',
                                   style: const TextStyle(color: Color(0xffB2B2B2), fontSize: 12)),
-                              SizedBox(height: 4),
+                              SizedBox(height: 6),
                               Text(
                                 Myorderstext[index]['subtitle3'],
                                 style: TextStyle(fontSize: 11),
@@ -87,8 +95,8 @@ class _MyOrdersState extends State<MyOrders> {
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.only(right: 15),
-                  width: size* 0.076,
+                  margin: EdgeInsets.only(right: 9,top: 2),
+                  width: size* 0.082,
                   alignment: Alignment.topRight,
                   height: 100,
                   child: Icon(
@@ -97,12 +105,12 @@ class _MyOrdersState extends State<MyOrders> {
                   ),
                 ),
               ],
-            ),
-          );
-        },
-        separatorBuilder: (BuildContext context, int index) {
-          return Divider(thickness: 1);
-        },
+            );
+          },
+          separatorBuilder: (BuildContext context, int index) {
+            return Divider(thickness: 1);
+          },
+        ),
       ),
     );
   }

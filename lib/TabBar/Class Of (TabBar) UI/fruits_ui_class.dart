@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:givestarreviews/givestarreviews.dart';
 
-
-bool favorite=true;
-class Vegetables{
-  Widget model1(image,text1,text2) {
-    return Padding(
+class Fruits{
+  Widget model2(image,text1,text2) {
+    return  Padding(
       padding: const EdgeInsets.all(10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+
           Container(
             height: 160,
             width: 135,
@@ -34,7 +33,7 @@ class Vegetables{
                         borderRadius: BorderRadius.circular(30),
                         color: Colors.white,
                       ),
-                      child:  const Center(
+                      child: const Center(
                         child: Icon(Icons.favorite_outlined,color: Colors.red,size: 18),
                       ),
                     ),
@@ -50,6 +49,7 @@ class Vegetables{
                   GiveStarData(
                     text: "",
                     onChanged: (rate) {},
+                    spaceBetween: 3,
                     size: 20,
                     activeStarColor: const Color(0xffFFB238),
                     inactiveStarColor: const Color(0xff707070),

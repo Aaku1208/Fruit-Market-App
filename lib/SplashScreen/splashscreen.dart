@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:fruit_market2/Colors/color.dart';
 import 'package:fruit_market2/Pages/welcome_page.dart';
 import 'package:fruit_market2/Shared%20Preferences%20class/login_shared_preferences.dart';
 import 'package:fruit_market2/StartingPage/verificationpage.dart';
@@ -60,7 +61,7 @@ class _SplashScreenState extends State<SplashScreen> {
     double sizeheight = MediaQuery.of(context).size.height;
     double sizewidth = MediaQuery.of(context).size.width;
     return Scaffold(
-      backgroundColor: const Color(0xff69A03A),
+      backgroundColor: myColor,
       body: Column(
         children: [
           SizedBox(height: sizeheight * 0.390),

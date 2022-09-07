@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../../../Colors/color.dart';
+
+import '../../../../../Colors/color.dart';
 
 class NotificationSetting extends StatefulWidget {
   const NotificationSetting({Key? key}) : super(key: key);

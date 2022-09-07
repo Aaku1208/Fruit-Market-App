@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../Colors/color.dart';
+import '../../Colors/color.dart';
 
 class ShoppingPage extends StatefulWidget {
   const ShoppingPage({Key? key}) : super(key: key);

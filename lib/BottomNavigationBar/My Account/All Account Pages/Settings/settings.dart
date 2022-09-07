@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:fruit_market2/BottomNavigationBar/All%20Account%20Pages/Settings/Setting%20All%20Page/account.dart';
-import 'package:fruit_market2/BottomNavigationBar/All%20Account%20Pages/Settings/Setting%20All%20Page/language.dart';
-import 'package:fruit_market2/BottomNavigationBar/All%20Account%20Pages/Settings/Setting%20All%20Page/notification_setting.dart';
-
-import '../../../Colors/color.dart';
+import '../../../../Colors/color.dart';
+import 'Setting All Page/account.dart';
 import 'Setting All Page/change_address.dart';
+import 'Setting All Page/language.dart';
+import 'Setting All Page/notification_setting.dart';
 
 class Settings extends StatefulWidget {
   const Settings({Key? key}) : super(key: key);

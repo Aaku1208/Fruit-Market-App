@@ -1,9 +1,8 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
-
-import '../All Images & Text Class(TabBar)/all_image_text_dryfruits.dart';
 import '../Colors/color.dart';
+import 'All Images & Text Class(TabBar)/all_image_text_dryfruits.dart';
 
 class DryFruitsPage extends StatefulWidget {
   const DryFruitsPage({Key? key}) : super(key: key);
@@ -207,7 +206,7 @@ class _DryFruitsPageState extends State<DryFruitsPage> {
               ),
               /// ListView.Builder
               SizedBox(
-                height: 300,
+                height: 311,
                 child: ListView.builder(
                   itemCount: kashmiriDryFruits.length,
                   scrollDirection: Axis.horizontal,

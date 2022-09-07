@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:givestarreviews/givestarreviews.dart';
 
-class Fruits{
-  Widget model2(image,text1,text2) {
+class DryFruits{
+  Widget model3(image,text1,text2) {
     return  Padding(
       padding: const EdgeInsets.all(10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-
           Container(
             height: 160,
             width: 135,
@@ -49,6 +48,7 @@ class Fruits{
                   GiveStarData(
                     text: "",
                     onChanged: (rate) {},
+                    spaceBetween: 3,
                     size: 20,
                     activeStarColor: const Color(0xffFFB238),
                     inactiveStarColor: const Color(0xff707070),

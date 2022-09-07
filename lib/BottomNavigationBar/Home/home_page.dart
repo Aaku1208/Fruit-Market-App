@@ -2,10 +2,11 @@
 
 import 'package:flutter/material.dart';
 
-import '../Colors/color.dart';
-import '../TabBar/dry_fruits_Page.dart';
-import '../TabBar/fruits_page.dart';
-import '../TabBar/vagetables_page.dart';
+import '../../Colors/color.dart';
+import '../../TabBar/dry_fruits_Page.dart';
+import '../../TabBar/fruits_page.dart';
+import '../../TabBar/vagetables_page.dart';
+import 'Notification/notification_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -31,7 +32,7 @@ class _HomePageState extends State<HomePage> {
                   Stack(
                     children: [
                       Container(
-                        height: sizeheight*.18,
+                        height: sizeheight*.20, //18
                         width: double.infinity,
                         color: myColor,
                         child: Padding(
@@ -48,14 +49,23 @@ class _HomePageState extends State<HomePage> {
                                       fontWeight: FontWeight.w900,
                                       color: Colors.white,
                                     ),
-                                  )
+                                  ),
                                 ],
                               ),
-                              SizedBox(height: sizeheight * .01, width: sizewidth*.13),
+                              SizedBox(width: sizewidth * .13),
                               Column(
-                                children: const [
-                                  Icon(Icons.notifications_rounded,
-                                      size: 27, color: Colors.white),
+                                //mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                    IconButton(
+                                      padding: EdgeInsets.only(bottom: 20),
+                                      icon: Icon(Icons.notifications_rounded,size: 27,color: Colors.white),
+                                      onPressed: () {
+                                        Navigator.of(context).push(
+                                            MaterialPageRoute(builder: (context) => const NotificationPage()));
+                                      },
+                                    ),
+                                  // Icon(Icons.notifications_rounded,
+                                  //     size: 27, color: Colors.white),
                                 ],
                               ),
                             ],
@@ -63,7 +73,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                       Container(
-                        margin: EdgeInsets.only(top: sizeheight*0.15, left: sizewidth*0.03, right: sizewidth*0.03),
+                        margin: EdgeInsets.only(top: sizeheight*0.17, left: sizewidth*0.03, right: sizewidth*0.03),
                         height: sizeheight*.06,
                         width: sizewidth *1,
                         decoration: BoxDecoration(

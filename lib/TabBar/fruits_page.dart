@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../All Images & Text Class(TabBar)/all_image_text_fruits.dart';
 import '../Colors/color.dart';
+import 'All Images & Text Class(TabBar)/all_image_text_fruits.dart';
 
 class FruitsPage extends StatefulWidget {
   const FruitsPage({Key? key}) : super(key: key);
@@ -163,7 +163,7 @@ class _FruitsPageState extends State<FruitsPage> {
             ),
             /// ListView.Builder
             SizedBox(
-              height: 300,
+              height: 311,
               child: ListView.builder(
                 itemCount: melons.length,
                 scrollDirection: Axis.horizontal,
