@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:fruit_market2/Colors/color.dart';
-import 'package:givestarreviews/givestarreviews.dart';
-
 import 'all_image_text_myorders.dart';
 
 class MyOrders extends StatefulWidget {

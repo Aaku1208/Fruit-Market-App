@@ -44,7 +44,6 @@ dependencies:
   lottie: ^1.4.1
   pinput: ^2.2.11
   fluttertoast: ^8.0.9
-  givestarreviews: ^1.0.2
   auth_buttons: ^3.0.0
   image_picker: ^0.8.5+3
   star_menu: ^2.2.0
