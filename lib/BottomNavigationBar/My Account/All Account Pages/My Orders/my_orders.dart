@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:fruit_market2/Colors/color.dart';
 import 'package:givestarreviews/givestarreviews.dart';
 
@@ -51,11 +52,11 @@ class _MyOrdersState extends State<MyOrders> {
                   child: Container(
                     height: 122,
                     child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      //mainAxisAlignment: MainAxisAlignment.spaceAround,
                       // crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Padding(
-                          padding: const EdgeInsets.only(left: 10),
+                          padding: const EdgeInsets.only(left: 10,top: 12),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -65,24 +66,25 @@ class _MyOrdersState extends State<MyOrders> {
                                       color: Colors.black,
                                       fontWeight: FontWeight.w500)),
                               Padding(
-                                padding: const EdgeInsets.only(right: 20),
-                                child: GiveStarReviews(
-                                  starData: [
-                                    GiveStarData(
-                                      text: "",
-                                      onChanged: (rate) {},
-                                      size: 20,
-                                      spaceBetween: 3,
-                                      activeStarColor: const Color(0xffA6A1A1),
-                                      inactiveStarColor: const Color(0xffA6A1A1),
-                                    ),
-                                  ],
+                                padding: const EdgeInsets.only(right: 20,top: 10),
+                                child: RatingBar.builder(
+                                  initialRating: 2,
+                                  minRating: 1,
+                                  direction: Axis.horizontal,
+                                  allowHalfRating: true,
+                                  itemCount: 5,
+                                  itemSize: 22,
+                                  itemBuilder: (context, _) => Icon(
+                                      Icons.star,color: RatingColor),
+                                  onRatingUpdate: (rating) {
+                                    print(rating);
+                                  },
                                 ),
                               ),
-                              SizedBox(height: 6),
+                              SizedBox(height: 10),
                               Text('Rate this Product',
                                   style: const TextStyle(color: Color(0xffB2B2B2), fontSize: 12)),
-                              SizedBox(height: 6),
+                              SizedBox(height: 10),
                               Text(
                                 Myorderstext[index]['subtitle3'],
                                 style: TextStyle(fontSize: 11),
@@ -101,7 +103,7 @@ class _MyOrdersState extends State<MyOrders> {
                   height: 100,
                   child: Icon(
                     Icons.arrow_forward_ios,
-                    size: 18,
+                    size: 15,
                   ),
                 ),
               ],

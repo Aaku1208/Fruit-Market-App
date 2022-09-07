@@ -26,20 +26,15 @@ Map<String, dynamic>? userData;
 
 /// Facebook
 fbLogin() async {
-  final LoginResult result = await FacebookAuth.instance.login();
-  if (result.status == LoginStatus.success) {
-    // you are logged
-    final AccessToken accessToken = result.accessToken!;
-  } else {
-    print(result.status);
-    print(result.message);
-  }
-  final AccessToken? accessToken = await FacebookAuth.instance.accessToken;
+  await FacebookAuth.instance.login();
+
+  //final AccessToken? accessToken = await FacebookAuth.instance.accessToken;
+  //FacebookAuth.instance.accessToken;
   final user = await FacebookAuth.instance.getUserData();
   userData = user;
 }
 
 
 String userEmail = '';
-String? userName = '';
+String? userName ='';
 String? userPhoto = '';

@@ -104,10 +104,10 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
 
 // slider declared
 class Slider extends StatelessWidget {
-  String text;
-  String image;
-  String title;
-  String description;
+  final String text;
+  final String image;
+  final String title;
+  final String description;
   Slider({Key? key,
     required this.text, required this.image, required this.title, required this.description}) : super(key: key);
 

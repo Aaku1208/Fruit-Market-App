@@ -55,7 +55,7 @@ class _VegeTablesPageState extends State<VegeTablesPage> {
 
               /// ListView.Builder
               SizedBox(
-                height: 282,
+                height: 270,
                 child: ListView.builder(
                   itemCount: organicVegetables.length,
                   scrollDirection: Axis.horizontal,
@@ -105,7 +105,7 @@ class _VegeTablesPageState extends State<VegeTablesPage> {
 
               /// ListView.Builder
               SizedBox(
-                height: 282,
+                height: 270,
                 child: ListView.builder(
                   itemCount: mixedVegetables.length,
                   scrollDirection: Axis.horizontal,
@@ -154,7 +154,7 @@ class _VegeTablesPageState extends State<VegeTablesPage> {
               ),
               /// ListView.Builder
               SizedBox(
-                height: 282,
+                height: 270,
                 child: ListView.builder(
                   itemCount: alliumVegetables.length,
                   scrollDirection: Axis.horizontal,
@@ -203,7 +203,7 @@ class _VegeTablesPageState extends State<VegeTablesPage> {
               ),
               /// ListView.Builder
               SizedBox(
-                height: 311,
+                height: 300,
                 child: ListView.builder(
                   itemCount: rootVegetabels.length,
                   scrollDirection: Axis.horizontal,

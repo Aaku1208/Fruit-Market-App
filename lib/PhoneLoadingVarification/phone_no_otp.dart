@@ -284,7 +284,6 @@ class _PhoneNoAndOTPState extends State<PhoneNoAndOTP> {
 
   @override
   Widget build(BuildContext context) {
-    double size = MediaQuery.of(context).size.height;
     return Scaffold(
       body: currentState == LoginScreen.SHOW_MOBILE_ENTER_WIDGET ? showMobilePhoneWidget(context) : showOtpFormWidget(context),
     );

@@ -22,7 +22,7 @@ class LogInSharedPreferences {
   /// Image
   static set setPofilePhoto(value) => pref!.setString(ProfileImage, value);
 
-  static String? get getPofilePhoto => pref!.getString(ProfileImage);
+  static String? get getPofilePhoto => pref?.getString(ProfileImage);
 
 
   /// OTP

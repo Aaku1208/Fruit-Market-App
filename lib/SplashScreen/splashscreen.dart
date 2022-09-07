@@ -1,12 +1,9 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:fruit_market2/Colors/color.dart';
 import 'package:fruit_market2/Pages/welcome_page.dart';
 import 'package:fruit_market2/Shared%20Preferences%20class/login_shared_preferences.dart';
 import 'package:fruit_market2/StartingPage/verificationpage.dart';
-
-import '../onboardingScreen/eshopping.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -59,7 +56,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     double sizeheight = MediaQuery.of(context).size.height;
-    double sizewidth = MediaQuery.of(context).size.width;
+    //double sizewidth = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: myColor,
       body: Column(

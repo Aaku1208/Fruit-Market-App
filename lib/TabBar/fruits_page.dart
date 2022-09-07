@@ -46,7 +46,7 @@ class _FruitsPageState extends State<FruitsPage> {
 
             /// ListView.Builder
             SizedBox(
-              height: 282,
+              height: 270,
               child: ListView.builder(
                 itemCount: organicFruits.length,
                 scrollDirection: Axis.horizontal,
@@ -85,7 +85,7 @@ class _FruitsPageState extends State<FruitsPage> {
             ),
             /// ListView.Builder
             SizedBox(
-              height: 282,
+              height: 270,
               child: ListView.builder(
                 itemCount: mixedFruitsPack.length,
                 scrollDirection: Axis.horizontal,
@@ -124,7 +124,7 @@ class _FruitsPageState extends State<FruitsPage> {
             ),
             /// ListView.Builder
             SizedBox(
-              height: 282,
+              height: 270,
               child: ListView.builder(
                 itemCount: stoneFruits.length,
                 scrollDirection: Axis.horizontal,
@@ -163,7 +163,7 @@ class _FruitsPageState extends State<FruitsPage> {
             ),
             /// ListView.Builder
             SizedBox(
-              height: 311,
+              height: 300,
               child: ListView.builder(
                 itemCount: melons.length,
                 scrollDirection: Axis.horizontal,

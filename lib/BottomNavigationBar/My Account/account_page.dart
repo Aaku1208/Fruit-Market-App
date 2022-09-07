@@ -28,7 +28,7 @@ class AccountPage extends StatefulWidget {
 class _AccountPageState extends State<AccountPage> {
   late List<Widget> subEntries;
   File? file;
-  String? getPofilePhoto;
+  late String getPofilePhoto;
 
   pickImage() async {
     ImagePicker pickImg = ImagePicker();
@@ -141,15 +141,9 @@ class _AccountPageState extends State<AccountPage> {
                     width: 100,
                     decoration: BoxDecoration(
                         image: DecorationImage(
-                            image: LogInSharedPreferences
-                                .getPofilePhoto ==
-                                null
-                                ? NetworkImage(LogInSharedPreferences
-                                .getFbPhoto
-                                .toString())
-                                : FileImage(File(LogInSharedPreferences
-                                .getPofilePhoto
-                                .toString())) as ImageProvider,
+                            image: LogInSharedPreferences.getPofilePhoto == null
+                                ? NetworkImage(LogInSharedPreferences.getFbPhoto.toString())
+                                : FileImage(File(LogInSharedPreferences.getPofilePhoto.toString())) as ImageProvider,
                             fit: BoxFit.fill),
                         shape: BoxShape.circle),
                   ),
@@ -165,15 +159,9 @@ class _AccountPageState extends State<AccountPage> {
                     width: 100,
                     decoration: BoxDecoration(
                         image: DecorationImage(
-                            image: LogInSharedPreferences
-                                .getPofilePhoto ==
-                                null
-                                ? NetworkImage(LogInSharedPreferences
-                                .getGlPhoto
-                                .toString())
-                                : FileImage(File(LogInSharedPreferences
-                                .getPofilePhoto
-                                .toString())) as ImageProvider,
+                            image: LogInSharedPreferences.getPofilePhoto == null
+                                ? NetworkImage(LogInSharedPreferences.getGlPhoto.toString())
+                                : FileImage(File(LogInSharedPreferences.getPofilePhoto.toString())) as ImageProvider,
                             fit: BoxFit.fill
                           // image: NetworkImage(userPhoto!),
                         ),

@@ -25,7 +25,7 @@ List<Map> FavoriteText = [
     'image': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfwC_D3_8erfMSkrFMQ5-YeUiwFQUpSfg6AQ&usqp=CAU ',
     'subtitle1': 'Walnuts',
     'subtitle2': 'Pick up from organic farms',
-    'subtitle3': '280 Per/kg',
+    'subtitle3': '180 Per/kg',
   },
 
   {

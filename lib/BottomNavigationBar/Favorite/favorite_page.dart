@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:givestarreviews/givestarreviews.dart';
 import '../../Colors/color.dart';
 import 'all_image_text_favorite.dart';
@@ -14,7 +15,7 @@ class _FavoritePageState extends State<FavoritePage> {
   @override
   Widget build(BuildContext context) {
     double sizeheight = MediaQuery.of(context).size.height;
-    double sizewidth = MediaQuery.of(context).size.width;
+    //double sizewidth = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
         title: Text("Favorite"),
@@ -74,23 +75,21 @@ class _FavoritePageState extends State<FavoritePage> {
                                   SizedBox(height: 8),
                                   Text(FavoriteText[index]['subtitle2'],
                                       style: const TextStyle(color: Color(0xffB2B2B2), fontSize: 12)),
-                                  //SizedBox(height: 8),
-                                  Padding(
-                                    padding: EdgeInsets.only(right: sizeheight* 0.050),
-                                    child: GiveStarReviews(
-                                      starData: [
-                                        GiveStarData(
-                                          text: "",
-                                          onChanged: (rate) {},
-                                          size: 17,
-                                          spaceBetween: 2,
-                                          activeStarColor: const Color(0xffFFB238),
-                                          inactiveStarColor: const Color(0xff707070),
-                                        ),
-                                      ],
-                                    ),
+                                  SizedBox(height: 5),
+                                  RatingBar.builder(
+                                    initialRating: 2,
+                                    minRating: 1,
+                                    direction: Axis.horizontal,
+                                    allowHalfRating: true,
+                                    itemCount: 5,
+                                    itemSize: 22,
+                                    itemBuilder: (context, _) => Icon(
+                                        Icons.star,color: RatingColor),
+                                    onRatingUpdate: (rating) {
+                                      print(rating);
+                                    },
                                   ),
-                                  SizedBox(height: 10),
+                                  SizedBox(height: 14),
                                   Row(
                                     children: [
                                       /// -

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:givestarreviews/givestarreviews.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import '../../Colors/color.dart';
 
 
 bool favorite=true;
@@ -43,26 +44,33 @@ class Vegetables{
               ],
             ),
           ),
+          SizedBox(height: 5),
           Row(
             children: [
-              GiveStarReviews(
-                starData: [
-                  GiveStarData(
-                    text: "",
-                    onChanged: (rate) {},
-                    spaceBetween: 3,
-                    size: 20,
-                    activeStarColor: const Color(0xffFFB238),
-                    inactiveStarColor: const Color(0xff707070),
-                  ),
-                ],
-              ),
+            RatingBar.builder(
+              initialRating: 2,
+              minRating: 1,
+              direction: Axis.horizontal,
+              allowHalfRating: true,
+              itemCount: 5,
+              itemSize: 22,
+              itemBuilder: (context, _) => Icon(
+                Icons.star,color: RatingColor),
+                onRatingUpdate: (rating) {
+                  print(rating);
+                  },
+            ),
             ],
           ),
-          const SizedBox(height: 4),
-          Text(text1,style: const TextStyle(fontWeight: FontWeight.bold),),
-          const SizedBox(height: 4),
-          Text(text2,style: const TextStyle(color: Colors.black,fontWeight: FontWeight.w400,fontSize: 13)),
+          const SizedBox(height: 2),
+          Padding(
+            padding: const EdgeInsets.all(2),
+            child: Text(text1,style: const TextStyle(fontWeight: FontWeight.bold),),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(2),
+            child: Text(text2,style: const TextStyle(color: Colors.black,fontWeight: FontWeight.w400,fontSize: 13)),
+          ),
         ],
       ),
     );

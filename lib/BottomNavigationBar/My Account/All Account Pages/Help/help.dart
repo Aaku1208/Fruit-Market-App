@@ -58,3 +58,8 @@ class _HelpState extends State<Help> {
     );
   }
 }
+
+//
+// Text(
+// "Favorites",
+// style: Theme.of(context).textTheme.headline1,

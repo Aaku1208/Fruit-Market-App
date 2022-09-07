@@ -57,7 +57,7 @@ class _DryFruitsPageState extends State<DryFruitsPage> {
 
               /// ListView.Builder
               SizedBox(
-                height: 282,
+                height: 270,
                 //h 280,
                 child: ListView.builder(
                   itemCount: indehiscentDryFruits.length,
@@ -108,7 +108,7 @@ class _DryFruitsPageState extends State<DryFruitsPage> {
 
               /// ListView.Builder
               SizedBox(
-                height: 282,
+                height: 270,
                 child: ListView.builder(
                   itemCount: mixedDryFruitsPack.length,
                   scrollDirection: Axis.horizontal,
@@ -157,7 +157,7 @@ class _DryFruitsPageState extends State<DryFruitsPage> {
               ),
               /// ListView.Builder
               SizedBox(
-                height: 282,
+                height: 270,
                 child: ListView.builder(
                   itemCount: dehiscentDryFruits.length,
                   scrollDirection: Axis.horizontal,
@@ -206,7 +206,7 @@ class _DryFruitsPageState extends State<DryFruitsPage> {
               ),
               /// ListView.Builder
               SizedBox(
-                height: 311,
+                height: 300,
                 child: ListView.builder(
                   itemCount: kashmiriDryFruits.length,
                   scrollDirection: Axis.horizontal,

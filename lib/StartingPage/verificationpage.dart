@@ -195,8 +195,8 @@ class _VerificationPageState extends State<VerificationPage> {
               actions: [
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    primary: Colors.redAccent,
-                    onPrimary: Colors.white,
+                    foregroundColor: Colors.white,
+                    backgroundColor: Colors.redAccent,
                   ),
                   onPressed: () async {},
                   child: const Text("Exit"),

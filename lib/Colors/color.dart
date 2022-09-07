@@ -5,6 +5,9 @@ Color myColor =  const Color(0xff69A03A);
 Color AddColor =  const Color(0xffCC7D00);
 
 
+Color RatingColor =  const Color(0xffFFB238);
+
+
 
 
 
