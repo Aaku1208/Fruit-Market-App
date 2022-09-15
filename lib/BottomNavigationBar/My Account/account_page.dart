@@ -239,7 +239,7 @@ class _AccountPageState extends State<AccountPage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(height: sizeheight * 0.02),
+            //SizedBox(height: sizeheight * 0.01),
             // My Orders
             GestureDetector(
               child: ListTile(
@@ -278,19 +278,19 @@ class _AccountPageState extends State<AccountPage> {
                     MaterialPageRoute(builder: (context) => const Settings()));
               },
             ),
-            const Divider(),
+            //const Divider(),
             // My Cart
-            GestureDetector(
-              child: ListTile(
-                contentPadding: const EdgeInsets.only(left: 25),
-                leading: Icon(Icons.shopping_cart, color: myColor),
-                title: const Text("My Cart"),
-              ),
-              onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const ShoppingPage()));
-              },
-            ),
+            // GestureDetector(
+            //   child: ListTile(
+            //     contentPadding: const EdgeInsets.only(left: 25),
+            //     leading: Icon(Icons.shopping_cart, color: myColor),
+            //     title: const Text("My Cart"),
+            //   ),
+            //   onTap: () {
+            //     Navigator.of(context).push(MaterialPageRoute(
+            //         builder: (context) => const ShoppingPage()));
+            //   },
+            // ),
             const Divider(),
             // Rate us
             GestureDetector(

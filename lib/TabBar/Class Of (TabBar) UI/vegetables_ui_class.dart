@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:fruit_market2/TabBar/All%20Images%20&%20Text%20Class(TabBar)/all_image_text_vagetables.dart';
 import '../../Colors/color.dart';
 
 
-bool favorite=true;
+bool favorite = false;
+int? index;
 class Vegetables{
   Widget model1(image,text1,text2) {
     return Padding(
@@ -35,8 +38,9 @@ class Vegetables{
                         borderRadius: BorderRadius.circular(30),
                         color: Colors.white,
                       ),
-                      child:  const Center(
-                        child: Icon(Icons.favorite_outlined,color: Colors.red,size: 18),
+                      child: Center(
+                        child: fav(index: int.fromEnvironment("mamse")),
+                      //       // child: Icon(Icons.favorite_outlined,color: Colors.red,size: 18)),
                       ),
                     ),
                   ],
@@ -75,5 +79,24 @@ class Vegetables{
       ),
     );
   }
+
 }
 
+Widget fav({i, required int index}){
+  return StatefulBuilder(builder:(BuildContext context, StateSetter setState){
+    return GestureDetector(
+        onTap: () {
+          favorite = !favorite;
+          setState(() {});
+          data.add(organicVegetables);
+          print(data);
+        },
+        child: Icon(favorite?Icons.favorite:Icons.favorite_outline,
+            color: favorite?Colors.red:Colors.black,size: 18));
+  } );
+}
+
+
+List data=[
+
+];

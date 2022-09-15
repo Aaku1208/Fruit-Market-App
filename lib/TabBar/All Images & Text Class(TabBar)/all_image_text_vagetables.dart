@@ -2,7 +2,7 @@ import '../Class Of (TabBar) UI/vegetables_ui_class.dart';
 
 
 // Organic Vegetables
-List organicVegetables = [
+List organicVegetables =  [
   Vegetables().model1(
       "https://images.unsplash.com/photo-1587351177732-5b0739d1bd44?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8YnJvY2NvbGl8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
       "Broccoli","₹190 Per/ kg"),

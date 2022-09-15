@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fruit_market2/TabBar/Class%20Of%20(TabBar)%20UI/vegetables_ui_class.dart';
 import '../Colors/color.dart';
 import 'All Images & Text Class(TabBar)/all_image_text_vagetables.dart';
 
@@ -63,6 +64,7 @@ class _VegeTablesPageState extends State<VegeTablesPage> {
                     return Row(
                       children: [
                         organicVegetables[i],
+                        //fav(index: i),
                       ],
                     );
                   },
