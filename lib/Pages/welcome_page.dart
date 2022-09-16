@@ -69,7 +69,7 @@ class _WelcomePageState extends State<WelcomePage> {
   Widget build(BuildContext context) {
 
     List _pages = [
-     const HomePage(),
+      const HomePage(),
      const ShoppingPage(),
      const FavoritePage(),
      const AccountPage(),

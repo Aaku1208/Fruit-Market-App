@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:fruit_market2/TabBar/Class%20Of%20(TabBar)%20UI/vegetables_ui_class.dart';
+import 'package:get/get_navigation/src/nav2/get_router_delegate.dart';
 
 import '../../Colors/color.dart';
 import '../../TabBar/dry_fruits_Page.dart';
@@ -128,7 +130,7 @@ class _HomePageState extends State<HomePage> {
                   SizedBox(
                     height: sizeheight *.65,
                     width: sizewidth *1,
-                    child: const TabBarView(
+                    child: TabBarView(
                       children: [
                         VegeTablesPage(),
                         FruitsPage(),
@@ -145,3 +147,4 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
+

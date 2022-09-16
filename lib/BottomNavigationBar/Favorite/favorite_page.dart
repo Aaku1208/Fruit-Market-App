@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:fruit_market2/TabBar/fruits_page.dart';
 import '../../Colors/color.dart';
-import 'all_image_text_favorite.dart';
 
 class FavoritePage extends StatefulWidget {
   const FavoritePage({Key? key}) : super(key: key);
@@ -11,6 +11,14 @@ class FavoritePage extends StatefulWidget {
 }
 
 class _FavoritePageState extends State<FavoritePage> {
+
+  bool favr = false;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    data;
+  }
   @override
   Widget build(BuildContext context) {
     double sizeheight = MediaQuery.of(context).size.height;
@@ -29,13 +37,14 @@ class _FavoritePageState extends State<FavoritePage> {
             SizedBox(height: 6),
 
             ListView.separated(
-              itemCount: FavoriteText.length,
+              itemCount: data.length,
               scrollDirection: Axis.vertical,
               physics: NeverScrollableScrollPhysics(),
               shrinkWrap: true,
               itemBuilder: (context, index) {
                 return Row(
                   children: [
+                    /// Image
                     Expanded(
                       child: Padding(
                         padding: const EdgeInsets.only(left: 15,top: 9,right: 15,bottom: 9),
@@ -45,14 +54,55 @@ class _FavoritePageState extends State<FavoritePage> {
                             borderRadius: BorderRadius.circular(17),
                             image: DecorationImage(
                               image: NetworkImage(
-                                FavoriteText[index]['image'],),
+                                data[index]['image'],),
                               fit: BoxFit.cover,
                             ),
                           ),
-                          child: Text(""),
+                          child: Column(
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  StatefulBuilder(
+                                    builder:(BuildContext context, StateSetter setState)=>
+                                        GestureDetector(
+                                          onTap: () {
+                                            favr = !favr;
+                                            data.removeAt(index);
+                                            setState(() {});
+                                          },
+                                          child: Container(
+                                            margin: const EdgeInsets.only(
+                                                right: 7, top: 7),
+                                            height: 25,
+                                            width: 25,
+                                            decoration: BoxDecoration(
+                                              borderRadius:
+                                              BorderRadius.circular(30),
+                                              color: Colors.white,
+                                            ),
+                                            child: Center(
+                                              // child: fav(index: int.fromEnvironment("mamse")),
+                                              child:
+                                              Icon(
+                                                  favr
+                                                      ? Icons.favorite_outline
+                                                      : Icons.favorite,
+                                                  color: favr?Colors.black:Colors.red,size: 20
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
+
+                    /// all text rating title
                     Expanded(
                       child: Container(
                         height: sizeheight * 0.179, //139
@@ -66,13 +116,13 @@ class _FavoritePageState extends State<FavoritePage> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                 children: [
-                                  Text(FavoriteText[index]['subtitle1'],
+                                  Text(data[index]['name'],
                                       style: TextStyle(
                                           color: Colors.black,
                                           fontWeight: FontWeight.w600)),
 
                                   SizedBox(height: 8),
-                                  Text(FavoriteText[index]['subtitle2'],
+                                  Text('Pick up form organic data',
                                       style: const TextStyle(color: Color(0xffB2B2B2), fontSize: 12)),
                                   SizedBox(height: 5),
                                   RatingBar.builder(
@@ -145,21 +195,18 @@ class _FavoritePageState extends State<FavoritePage> {
                         ),
                       ),
                     ),
-                    Container(
-                      margin: EdgeInsets.only(right: 9),
-                      width: sizeheight * 0.085, // 0.076
-                      alignment: Alignment.topRight,
-                      height: 125,
+
+                    /// price and Add cart
+                    Padding(
+                      padding: const EdgeInsets.only(right: 6,top: 20),
                       child: Column(
                         children: [
-                          Text(FavoriteText[index]['subtitle3'],
-                              style: TextStyle(fontSize: 11,fontWeight: FontWeight.w400,color: Colors.black)),
-
-                          SizedBox(height: 82),
-
+                          Text(data[index]['price'],
+                              style: TextStyle(fontSize: 10,fontWeight: FontWeight.w400,color: Colors.black)),
+                          SizedBox(height: sizeheight*0.10),
                           Container(
                             height: 30,
-                            width: 80,
+                            width: 55,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(7),
                               color: AddColor,
