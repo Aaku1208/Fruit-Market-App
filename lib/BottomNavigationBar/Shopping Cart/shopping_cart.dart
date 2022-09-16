@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fruit_market2/BottomNavigationBar/Favorite/favorite_page.dart';
 import 'package:fruit_market2/BottomNavigationBar/Shopping%20Cart/all_image_text_shoppingcart.dart';
 
 import '../../Colors/color.dart';
@@ -62,7 +63,6 @@ class _ShoppingPageState extends State<ShoppingPage> {
             ),
 
             /// ListView.separated Vegetables
-
             Scrollbar(
               thickness: 4,
               child: Column(
@@ -74,6 +74,7 @@ class _ShoppingPageState extends State<ShoppingPage> {
                     itemBuilder: (context, index) {
                       return Row(
                         children: [
+                          /// Image
                           Expanded(
                             child: Padding(
                               padding: const EdgeInsets.only(
@@ -84,7 +85,7 @@ class _ShoppingPageState extends State<ShoppingPage> {
                                   borderRadius: BorderRadius.circular(17),
                                   image: DecorationImage(
                                     image: NetworkImage(
-                                      ShoppingCartVegetablesImageText[index]['image'],
+                                      cart[index]['image'],
                                     ),
                                     fit: BoxFit.cover,
                                   ),
@@ -93,6 +94,8 @@ class _ShoppingPageState extends State<ShoppingPage> {
                               ),
                             ),
                           ),
+
+                          /// Name Price all....
                           Expanded(
                             child: Container(
                               height: 122,
@@ -100,116 +103,146 @@ class _ShoppingPageState extends State<ShoppingPage> {
                                 //mainAxisAlignment: MainAxisAlignment.spaceAround,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
+                                  SizedBox(height: 12),
+
+                                  // Name
+                                  Text(
+                                      cart[index]['name'],
+                                      style: TextStyle(
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.w600)),
+
+                                  SizedBox(height: 10),
+
+                                  // Rs. Save
+                                  Text(
+                                      ShoppingCartVegetablesImageText[index]
+                                          ['subtitle2'],
+                                      style: TextStyle(
+                                          color: myColor, fontSize: 11)),
+
+                                  SizedBox(height: 5),
+
+                                  // --Rs remove----
                                   Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                     children: [
-                                      SizedBox(height: 51),
-                                      Text(
-                                          ShoppingCartVegetablesImageText[index]
-                                              ['subtitle1'],
-                                          style: TextStyle(
-                                              color: Colors.black,
-                                              fontWeight: FontWeight.w600)),
-                                      SizedBox(width: 10),
-                                      Text(
-                                          ShoppingCartVegetablesImageText[index]
-                                              ['subtitle2'],
-                                          style: TextStyle(
-                                              color: myColor, fontSize: 11)),
+                                      Column(
+                                        children: [
+                                          Text(ShoppingCartVegetablesImageText[index]['subtitle3'],
+                                              style: const TextStyle(fontSize: 12,
+                                                decoration: TextDecoration.lineThrough,
+                                              )),
+                                        ],
+                                      ),
+                                      Column(
+                                        children: [
+                                          Row(
+                                            children: [
+                                              /// -
+                                              GestureDetector(
+                                                onTap: () {
+
+                                                },
+                                                child: Container(
+                                                  height: 25,
+                                                  width: 25,
+                                                  decoration: BoxDecoration(
+                                                    color: Colors.white,
+                                                    borderRadius: const BorderRadius.all(Radius.circular(7)),
+                                                    border: Border.all(
+                                                      color: Colors.black54,
+                                                      width: 1.6,
+                                                    ),
+                                                  ),
+                                                  child: Row(
+                                                    mainAxisAlignment: MainAxisAlignment.center,
+                                                    children: [
+                                                      Icon(Icons.remove,size: 15),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ),
+                                              SizedBox(width: 10),
+                                              Row(
+                                                children: [
+                                                  Text("2")
+                                                ],
+                                              ),
+                                              SizedBox(width: 10),
+                                              /// +
+                                              GestureDetector(
+                                                onTap: () {
+
+                                                },
+                                                child: Container(
+                                                  height: 25,
+                                                  width: 25,
+                                                  decoration: BoxDecoration(
+                                                    color: Colors.white,
+                                                    borderRadius: const BorderRadius.all(Radius.circular(7)),
+                                                    border: Border.all(
+                                                      color: Colors.black54,
+                                                      width: 1.6,
+                                                    ),
+                                                  ),
+                                                  child: Row(
+                                                    mainAxisAlignment: MainAxisAlignment.center,
+                                                    children: [
+                                                      Icon(Icons.add,size: 15),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
                                     ],
                                   ),
-                                  // SizedBox(height: 0),
-                                  Text(ShoppingCartVegetablesImageText[index]['subtitle3'],
-                                      style: const TextStyle(fontSize: 12,
-                                        decoration: TextDecoration.lineThrough,
-                                      )),
-                                  SizedBox(height: 8),
+
+                                  SizedBox(height: 5),
+
+                                  // Price
                                   Text(
-                                      ShoppingCartVegetablesImageText[index]['subtitle4'],
-                                    style: TextStyle(
+                                      cart[index]['price'],
+                                      style: TextStyle(
                                         fontSize: 11,
                                         fontWeight: FontWeight.w700)),
-                                  SizedBox(height: 10),
-                                  Padding(
-                                    padding: const EdgeInsets.only(left: 81),
-                                    child: Row(
-                                      children: [
-                                        /// -
-                                        GestureDetector(
-                                          onTap: () {
 
-                                          },
-                                          child: Container(
-                                            height: 25,
-                                            width: 25,
-                                            decoration: BoxDecoration(
-                                              color: Colors.white,
-                                              borderRadius: const BorderRadius.all(Radius.circular(7)),
-                                              border: Border.all(
-                                                color: Colors.black54,
-                                                width: 1.6,
-                                              ),
-                                            ),
-                                            child: Row(
-                                              mainAxisAlignment: MainAxisAlignment.center,
-                                              children: [
-                                                Icon(Icons.remove,size: 15),
-                                              ],
-                                            ),
-                                          ),
-                                        ),
-                                        SizedBox(width: 10),
-                                        Row(
-                                          children: [
-                                            Text("2")
-                                          ],
-                                        ),
-                                        SizedBox(width: 10),
-                                        /// +
-                                        GestureDetector(
-                                          onTap: () {
-
-                                          },
-                                          child: Container(
-                                            height: 25,
-                                            width: 25,
-                                            decoration: BoxDecoration(
-                                              color: Colors.white,
-                                              borderRadius: const BorderRadius.all(Radius.circular(7)),
-                                              border: Border.all(
-                                                color: Colors.black54,
-                                                width: 1.6,
-                                              ),
-                                            ),
-                                            child: Row(
-                                              mainAxisAlignment: MainAxisAlignment.center,
-                                              children: [
-                                                Icon(Icons.add,size: 15),
-                                              ],
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-
+                                  SizedBox(height: 0),
                                 ],
                               ),
                             ),
                           ),
-                          Container(
-                            margin: EdgeInsets.only(right: 9, top: 9),
-                            width: sizewidth * 0.085,
-                            // 0.076
-                            alignment: Alignment.topRight,
-                            height: 100,
-                            child: Column(
-                              children: [
-                                Icon(
-                                  Icons.delete_outline_outlined,
-                                  color: Colors.black,
-                                  size: 20,
-                                ),
-                              ],
+
+                          /// Delete
+                          GestureDetector(
+                            onTap: () {
+                              cart.removeAt(index);
+                              // ScaffoldMessenger.of(context).showSnackBar(
+                              //     const SnackBar(duration: Duration(seconds: 3),
+                              //       content: Text('Data Add to Cart Please Check',
+                              //         style: TextStyle(color: Colors.white,fontSize: 15),
+                              //       ),
+                              //       backgroundColor: Colors.black,
+                              //     ));
+                              setState(() {});
+                            },
+                            child: Container(
+                              margin: EdgeInsets.only(right: 9),
+                              //width: sizewidth * 0.085, // 0.076
+                              alignment: Alignment.topRight,
+                              height: 100,
+                              child: Column(
+                                children: [
+                                  Icon(
+                                    Icons.delete_outline_outlined,
+                                    color: Colors.black,
+                                    size: 20,
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ],

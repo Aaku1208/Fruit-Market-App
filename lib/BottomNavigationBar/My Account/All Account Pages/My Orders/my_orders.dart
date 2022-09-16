@@ -29,6 +29,7 @@ class _MyOrdersState extends State<MyOrders> {
           itemBuilder: (context, index) {
             return Row(
               children: [
+                /// Image
                 Expanded(
                   child: Padding(
                     padding: const EdgeInsets.only(left: 15,top: 9,right: 15,bottom: 9),
@@ -46,6 +47,8 @@ class _MyOrdersState extends State<MyOrders> {
                     ),
                   ),
                 ),
+
+                /// Name Rating Date....
                 Expanded(
                   child: Container(
                     height: 122,
@@ -94,6 +97,7 @@ class _MyOrdersState extends State<MyOrders> {
                     ),
                   ),
                 ),
+                /// Arrow Back Icon
                 Container(
                   margin: EdgeInsets.only(right: 9,top: 2),
                   width: size* 0.082,

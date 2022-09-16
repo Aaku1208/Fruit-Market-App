@@ -2,7 +2,7 @@
 List<Map> ShoppingCartVegetablesImageText = [
   {
     'image': 'https://images.unsplash.com/photo-1594282486552-05b4d80fbb9f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y2FiYmFnZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=400&q=60',
-    'subtitle1': 'Cabbage',
+    'subtitle1': 'Cabbagedfvdfgvdfgfggfghfhfhf',
     'subtitle2': 'Rs 40 Saved',
     'subtitle3': 'Rs 190',
     'subtitle4': '150 Per / kg',

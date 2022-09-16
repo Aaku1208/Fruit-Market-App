@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:fruit_market2/BottomNavigationBar/Home/Notification/notification_page.dart';
 import 'package:fruit_market2/TabBar/fruits_page.dart';
 import '../../Colors/color.dart';
 
@@ -203,35 +204,55 @@ class _FavoritePageState extends State<FavoritePage> {
                         children: [
                           Text(data[index]['price'],
                               style: TextStyle(fontSize: 10,fontWeight: FontWeight.w400,color: Colors.black)),
+
                           SizedBox(height: sizeheight*0.10),
-                          Container(
-                            height: 30,
-                            width: 55,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(7),
-                              color: AddColor,
+                            GestureDetector(
+                              onTap: () {
+                                setState(() {});
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                    const SnackBar(duration: Duration(seconds: 3),
+                                      content: Text('Data Add to Cart Please Check',
+                                        style: TextStyle(color: Colors.white,fontSize: 15),
+                                      ),
+                                      backgroundColor: Colors.black12,
+                                    ));
+                                cart.add({
+                                  'image': data[index]['image'],
+                                  'name': data[index]['name'],
+                                  'price': data[index]['price'],
+                                });
+                                //print(cart);
+                              },
+                              child: Container(
+                                height: 30,
+                                width: 55,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(7),
+                                  color: AddColor,
+                                ),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    Text("Add",style: TextStyle(color: Colors.white,fontSize: 15)),
+                                    Icon(Icons.shopping_cart_rounded,color: Colors.white,size: 18),
+                                  ],
+                                ),
+                              ),
                             ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                Text("Add",style: TextStyle(color: Colors.white,fontSize: 15)),
-                                Icon(Icons.shopping_cart_rounded,color: Colors.white,size: 18,)
-                              ],
-                            ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
-                    ),
-                  ],
-                );
-              },
-              separatorBuilder: (BuildContext context, int index) {
-                return Divider(thickness: 1);
-              },
-            ),
-          ],
+                    ],
+                  );
+                },
+                separatorBuilder: (BuildContext context, int index) {
+                  return Divider(thickness: 1);
+                },
+              ),
+            ],
+          ),
         ),
-      ),
-    );
-  }
+      );
+    }
 }
+List<Map> cart =[];

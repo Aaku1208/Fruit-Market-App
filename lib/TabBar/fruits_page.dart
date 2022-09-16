@@ -577,10 +577,9 @@ class _FruitsPageState extends State<FruitsPage> {
                                                         data.add({
                                                           'image': document[index]['image'],
                                                           'name': document[index]['name'],
-                                                          'price': document[index]['price']
-
+                                                          'price': document[index]['price'],
                                                         });
-                                                        print(data);
+                                                        //print(data);
                                                       },
                                                       child: Icon(
                                                           favr
