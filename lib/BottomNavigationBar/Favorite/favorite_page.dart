@@ -29,7 +29,11 @@ class _FavoritePageState extends State<FavoritePage> {
         backgroundColor: myColor,
         centerTitle: false,
       ),
-      body: SingleChildScrollView(
+
+      body: data.isEmpty ?
+      Center(child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [ Image.asset("assets/image/emptyfavorite.png"), Text("Your Wishlist is Empty",style: TextStyle(fontSize: 15,fontWeight: FontWeight.w500),)]),
+
+      ) : SingleChildScrollView(
         physics: BouncingScrollPhysics(),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -70,6 +74,7 @@ class _FavoritePageState extends State<FavoritePage> {
                                             favr = !favr;
                                             data.removeAt(index);
                                             setState(() {});
+                                            print("data deleted");
                                           },
                                           child: Container(
                                             margin: const EdgeInsets.only(

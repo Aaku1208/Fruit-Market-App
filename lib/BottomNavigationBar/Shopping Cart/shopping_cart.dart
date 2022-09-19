@@ -29,7 +29,10 @@ class _ShoppingPageState extends State<ShoppingPage> {
         title: Text("My Cart"),
       ),
 
-      body: SingleChildScrollView(
+      body: cart.isEmpty ?
+      Center(child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [ Image.asset("assets/image/cartremove.png",height: 180,width: 160), Text("Your cart is empty!",style: TextStyle(fontSize: 15,fontWeight: FontWeight.w500),)]),
+
+      ) :SingleChildScrollView(
         child: Column(
           children: [
             ExpansionTile(
@@ -385,13 +388,16 @@ class _ShoppingPageState extends State<ShoppingPage> {
                   child: Row(
                     children: [
                       Expanded(
-                        child: TextFormField(
+                        child:
+                        TextFormField(
                           //controller: phoneController,
                           textAlign: TextAlign.start,
                           keyboardType: TextInputType.number,
                           autovalidateMode: AutovalidateMode.onUserInteraction,
                           autofocus: true,
-                          validator: (value) {},
+                          validator: (value) {
+                            return null;
+                          },
                           onSaved: (value) {
                             //phoneController.text = value!;
                           },
