@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:fruit_market2/BottomNavigationBar/Home/Notification/notification_page.dart';
 import 'package:fruit_market2/TabBar/fruits_page.dart';
 import '../../Colors/color.dart';
 
@@ -104,7 +103,8 @@ class _FavoritePageState extends State<FavoritePage> {
                     ),
 
                     /// all text rating title
-                    Expanded(
+                    Expanded
+                      (
                       child: Container(
                         height: sizeheight * 0.179, //139
                         child: Column(
@@ -210,7 +210,7 @@ class _FavoritePageState extends State<FavoritePage> {
                               onTap: () {
                                 setState(() {});
                                 ScaffoldMessenger.of(context).showSnackBar(
-                                    const SnackBar(duration: Duration(seconds: 3),
+                                    const SnackBar(duration: Duration(seconds: 1),
                                       content: Text('Data Add to Cart Please Check',
                                         style: TextStyle(color: Colors.white,fontSize: 15),
                                       ),

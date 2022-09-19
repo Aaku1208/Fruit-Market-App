@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:fruit_market2/BottomNavigationBar/Favorite/favorite_page.dart';
-import 'package:fruit_market2/BottomNavigationBar/Shopping%20Cart/all_image_text_shoppingcart.dart';
 
 import '../../Colors/color.dart';
 
@@ -14,6 +13,12 @@ class ShoppingPage extends StatefulWidget {
 class _ShoppingPageState extends State<ShoppingPage> {
 
   @override
+  void initState() {
+    super.initState();
+    cart;
+  }
+
+  @override
   Widget build(BuildContext context) {
     double sizehight = MediaQuery.of(context).size.height;
     double sizewidth = MediaQuery.of(context).size.width;
@@ -25,7 +30,6 @@ class _ShoppingPageState extends State<ShoppingPage> {
       ),
 
       body: SingleChildScrollView(
-        physics: NeverScrollableScrollPhysics(),
         child: Column(
           children: [
             ExpansionTile(
@@ -63,199 +67,195 @@ class _ShoppingPageState extends State<ShoppingPage> {
             ),
 
             /// ListView.separated Vegetables
-            Scrollbar(
-              thickness: 4,
-              child: Column(
-                children: [
-                  ListView.separated(
-                    itemCount: ShoppingCartVegetablesImageText.length,
-                    scrollDirection: Axis.vertical,
-                    shrinkWrap: true,
-                    itemBuilder: (context, index) {
-                      return Row(
-                        children: [
-                          /// Image
-                          Expanded(
-                            child: Padding(
-                              padding: const EdgeInsets.only(
-                                  left: 15, top: 15, right: 30, bottom: 9),
-                              child: Container(
-                                height: 120,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(17),
-                                  image: DecorationImage(
-                                    image: NetworkImage(
-                                      cart[index]['image'],
-                                    ),
-                                    fit: BoxFit.cover,
+            Column(
+              children: [
+                ListView.separated(
+                  itemCount: cart.length,
+                  scrollDirection: Axis.vertical,
+                  shrinkWrap: true,
+                  physics: NeverScrollableScrollPhysics(),
+                  itemBuilder: (context, index) {
+                    return Row(
+                      children: [
+                        /// Image
+                        Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.only(
+                                left: 15, top: 15, right: 30, bottom: 9),
+                            child: Container(
+                              height: 120,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(17),
+                                image: DecorationImage(
+                                  image: NetworkImage(
+                                    cart[index]['image'],
                                   ),
+                                  fit: BoxFit.cover,
                                 ),
-                                child: Text(""),
                               ),
+                              child: Text(""),
                             ),
                           ),
+                        ),
 
-                          /// Name Price all....
-                          Expanded(
-                            child: Container(
-                              height: 122,
-                              child: Column(
-                                //mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  SizedBox(height: 12),
+                        /// Name Price all....
+                        Expanded(
+                          child: Container(
+                            height: 122,
+                            child: Column(
+                              //mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                SizedBox(height: 12),
 
-                                  // Name
-                                  Text(
-                                      cart[index]['name'],
-                                      style: TextStyle(
-                                          color: Colors.black,
-                                          fontWeight: FontWeight.w600)),
+                                // Name
+                                Text(
+                                    cart[index]['name'],
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.w600)),
 
-                                  SizedBox(height: 10),
+                                SizedBox(height: 10),
 
-                                  // Rs. Save
-                                  Text(
-                                      ShoppingCartVegetablesImageText[index]
-                                          ['subtitle2'],
-                                      style: TextStyle(
-                                          color: myColor, fontSize: 11)),
+                                // Rs. Save
+                                Text("Rs 40 Saved",
+                                    style: TextStyle(
+                                        color: myColor, fontSize: 11)),
 
-                                  SizedBox(height: 5),
+                                SizedBox(height: 5),
 
-                                  // --Rs remove----
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Column(
-                                        children: [
-                                          Text(ShoppingCartVegetablesImageText[index]['subtitle3'],
-                                              style: const TextStyle(fontSize: 12,
-                                                decoration: TextDecoration.lineThrough,
-                                              )),
-                                        ],
-                                      ),
-                                      Column(
-                                        children: [
-                                          Row(
-                                            children: [
-                                              /// -
-                                              GestureDetector(
-                                                onTap: () {
+                                // --Rs remove----
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Column(
+                                      children: [
+                                        Text("Rs 190",
+                                            style: const TextStyle(fontSize: 12,
+                                              decoration: TextDecoration.lineThrough,
+                                            )),
+                                      ],
+                                    ),
+                                    Column(
+                                      children: [
+                                        Row(
+                                          children: [
+                                            /// -
+                                            GestureDetector(
+                                              onTap: () {
 
-                                                },
-                                                child: Container(
-                                                  height: 25,
-                                                  width: 25,
-                                                  decoration: BoxDecoration(
-                                                    color: Colors.white,
-                                                    borderRadius: const BorderRadius.all(Radius.circular(7)),
-                                                    border: Border.all(
-                                                      color: Colors.black54,
-                                                      width: 1.6,
-                                                    ),
-                                                  ),
-                                                  child: Row(
-                                                    mainAxisAlignment: MainAxisAlignment.center,
-                                                    children: [
-                                                      Icon(Icons.remove,size: 15),
-                                                    ],
+                                              },
+                                              child: Container(
+                                                height: 25,
+                                                width: 25,
+                                                decoration: BoxDecoration(
+                                                  color: Colors.white,
+                                                  borderRadius: const BorderRadius.all(Radius.circular(7)),
+                                                  border: Border.all(
+                                                    color: Colors.black54,
+                                                    width: 1.6,
                                                   ),
                                                 ),
-                                              ),
-                                              SizedBox(width: 10),
-                                              Row(
-                                                children: [
-                                                  Text("2")
-                                                ],
-                                              ),
-                                              SizedBox(width: 10),
-                                              /// +
-                                              GestureDetector(
-                                                onTap: () {
-
-                                                },
-                                                child: Container(
-                                                  height: 25,
-                                                  width: 25,
-                                                  decoration: BoxDecoration(
-                                                    color: Colors.white,
-                                                    borderRadius: const BorderRadius.all(Radius.circular(7)),
-                                                    border: Border.all(
-                                                      color: Colors.black54,
-                                                      width: 1.6,
-                                                    ),
-                                                  ),
-                                                  child: Row(
-                                                    mainAxisAlignment: MainAxisAlignment.center,
-                                                    children: [
-                                                      Icon(Icons.add,size: 15),
-                                                    ],
-                                                  ),
+                                                child: Row(
+                                                  mainAxisAlignment: MainAxisAlignment.center,
+                                                  children: [
+                                                    Icon(Icons.remove,size: 15),
+                                                  ],
                                                 ),
                                               ),
-                                            ],
-                                          ),
-                                        ],
-                                      ),
-                                    ],
-                                  ),
+                                            ),
+                                            SizedBox(width: 10),
+                                            Row(
+                                              children: [
+                                                Text("2")
+                                              ],
+                                            ),
+                                            SizedBox(width: 10),
+                                            /// +
+                                            GestureDetector(
+                                              onTap: () {
 
-                                  SizedBox(height: 5),
+                                              },
+                                              child: Container(
+                                                height: 25,
+                                                width: 25,
+                                                decoration: BoxDecoration(
+                                                  color: Colors.white,
+                                                  borderRadius: const BorderRadius.all(Radius.circular(7)),
+                                                  border: Border.all(
+                                                    color: Colors.black54,
+                                                    width: 1.6,
+                                                  ),
+                                                ),
+                                                child: Row(
+                                                  mainAxisAlignment: MainAxisAlignment.center,
+                                                  children: [
+                                                    Icon(Icons.add,size: 15),
+                                                  ],
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
 
-                                  // Price
-                                  Text(
-                                      cart[index]['price'],
-                                      style: TextStyle(
-                                        fontSize: 11,
-                                        fontWeight: FontWeight.w700)),
+                                SizedBox(height: 5),
 
-                                  SizedBox(height: 0),
-                                ],
-                              ),
+                                // Price
+                                Text(
+                                    cart[index]['price'],
+                                    style: TextStyle(
+                                      fontSize: 11,
+                                      fontWeight: FontWeight.w700)),
+
+                                SizedBox(height: 0),
+                              ],
                             ),
                           ),
+                        ),
 
-                          /// Delete
-                          GestureDetector(
-                            onTap: () {
-                              cart.removeAt(index);
-                              // ScaffoldMessenger.of(context).showSnackBar(
-                              //     const SnackBar(duration: Duration(seconds: 3),
-                              //       content: Text('Data Add to Cart Please Check',
-                              //         style: TextStyle(color: Colors.white,fontSize: 15),
-                              //       ),
-                              //       backgroundColor: Colors.black,
-                              //     ));
-                              setState(() {});
-                            },
-                            child: Container(
-                              margin: EdgeInsets.only(right: 9),
-                              //width: sizewidth * 0.085, // 0.076
-                              alignment: Alignment.topRight,
-                              height: 100,
-                              child: Column(
-                                children: [
-                                  Icon(
-                                    Icons.delete_outline_outlined,
-                                    color: Colors.black,
-                                    size: 20,
-                                  ),
-                                ],
-                              ),
+                        /// Delete
+                        GestureDetector(
+                          onTap: () {
+                            cart.removeAt(index);
+                            // ScaffoldMessenger.of(context).showSnackBar(
+                            //     const SnackBar(duration: Duration(seconds: 3),
+                            //       content: Text('Data Add to Cart Please Check',
+                            //         style: TextStyle(color: Colors.white,fontSize: 15),
+                            //       ),
+                            //       backgroundColor: Colors.black,
+                            //     ));
+                            setState(() {});
+                          },
+                          child: Container(
+                            margin: EdgeInsets.only(right: 9),
+                            //width: sizewidth * 0.085, // 0.076
+                            alignment: Alignment.topRight,
+                            height: 100,
+                            child: Column(
+                              children: [
+                                Icon(
+                                  Icons.delete_outline_outlined,
+                                  color: Colors.black,
+                                  size: 20,
+                                ),
+                              ],
                             ),
                           ),
-                        ],
-                      );
-                    },
-                    separatorBuilder: (BuildContext context, int index) {
-                      return Divider(
-                        thickness: 1,
-                      );
-                    },
-                  ),
-                ],
-              ),
+                        ),
+                      ],
+                    );
+                  },
+                  separatorBuilder: (BuildContext context, int index) {
+                    return Divider(
+                      thickness: 1,
+                    );
+                  },
+                ),
+              ],
             ),
           ],
         ),
