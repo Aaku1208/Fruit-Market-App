@@ -275,7 +275,7 @@ class _ShoppingPageState extends State<ShoppingPage> {
               children: [
                 Padding(
                   padding: const EdgeInsets.all(15),
-                  child: Text("Total - Rs 840",style: TextStyle(fontWeight: FontWeight.w500,color: Colors.white)),
+                  child: Text("Total - Rs 0.00",style: TextStyle(fontWeight: FontWeight.w500,color: Colors.white)),
                 ),
               ],
             ),
