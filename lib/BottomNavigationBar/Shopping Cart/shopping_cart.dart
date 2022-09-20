@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fruit_market2/BottomNavigationBar/Favorite/favorite_page.dart';
 
 import '../../Colors/color.dart';
+import 'PaymentMethod.dart';
 
 class ShoppingPage extends StatefulWidget {
   const ShoppingPage({Key? key}) : super(key: key);
@@ -266,8 +267,7 @@ class _ShoppingPageState extends State<ShoppingPage> {
       bottomNavigationBar: Container(
         height: 50,
         width: double.infinity,
-        //color: Colors.grey.shade300,
-        color: myColor,
+        //color: myColor,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -275,7 +275,7 @@ class _ShoppingPageState extends State<ShoppingPage> {
               children: [
                 Padding(
                   padding: const EdgeInsets.all(15),
-                  child: Text("Total - Rs 0.00",style: TextStyle(fontWeight: FontWeight.w500,color: Colors.white)),
+                  child: Text("Total - Rs 0.00",style: TextStyle(fontWeight: FontWeight.w500,color: Colors.black)),
                 ),
               ],
             ),
@@ -289,11 +289,14 @@ class _ShoppingPageState extends State<ShoppingPage> {
                     elevation: 5,
                     minWidth: 25,
                     height: 38,
-                    color: Colors.grey.shade200,
-                    onPressed: () {},
+                    //color: Colors.grey.shade200,
+                    color: myColor,
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context) => PaymentMethod()));
+                    },
                     child: Text(
                       "Place Order",
-                      //style: const TextStyle(color: Colors.white),
+                      style: const TextStyle(color: Colors.white),
                     ),
                   ),
                 ),

@@ -51,8 +51,8 @@ class _MyOrdersState extends State<MyOrders> {
                 /// Name Rating Date....
                 Expanded(
                   child: Container(
-                    height: 122,
-                    child: Column(
+                    height: 125, // 122
+                     child: Column(
                       //mainAxisAlignment: MainAxisAlignment.spaceAround,
                       // crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
