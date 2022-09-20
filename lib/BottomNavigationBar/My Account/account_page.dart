@@ -241,6 +241,7 @@ class _AccountPageState extends State<AccountPage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
+            Text(userEmail),
             //SizedBox(height: sizeheight * 0.01),
             // My Orders
             GestureDetector(

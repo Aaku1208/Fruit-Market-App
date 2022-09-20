@@ -105,7 +105,7 @@ class _NameAddressPageState extends State<NameAddressPage> {
                               borderRadius:
                                   const BorderRadius.all(Radius.circular(10)),
                               borderSide: BorderSide(
-                                  color: Colors.grey.shade500, width: 1.5),
+                                  color: Colors.red, width: 1.5),
                             ),
                             hintStyle: const TextStyle(
                                 color: Colors.grey, fontSize: 16),
@@ -117,7 +117,7 @@ class _NameAddressPageState extends State<NameAddressPage> {
                     ),
                   ),
 
-                  /// SecondName
+                  /// LastName
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: const [
@@ -170,13 +170,12 @@ class _NameAddressPageState extends State<NameAddressPage> {
                               borderRadius:
                                   const BorderRadius.all(Radius.circular(10)),
                               borderSide: BorderSide(
-                                  color: Colors.grey.shade500, width: 1.5),
+                                  color: Colors.red, width: 1.5),
                             ),
                             focusedErrorBorder: OutlineInputBorder(
-                              borderRadius:
-                                  const BorderRadius.all(Radius.circular(10)),
+                              borderRadius: const BorderRadius.all(Radius.circular(10)),
                               borderSide: BorderSide(
-                                  color: Colors.grey.shade500, width: 1.5),
+                                  color: Colors.red, width: 1.5),
                             ),
                             hintStyle: const TextStyle(
                                 color: Colors.grey, fontSize: 16),
@@ -236,13 +235,13 @@ class _NameAddressPageState extends State<NameAddressPage> {
                               borderRadius:
                                   const BorderRadius.all(Radius.circular(10)),
                               borderSide: BorderSide(
-                                  color: Colors.grey.shade500, width: 1.5),
+                                  color: Colors.red, width: 1.5),
                             ),
                             focusedErrorBorder: OutlineInputBorder(
                               borderRadius:
                                   const BorderRadius.all(Radius.circular(10)),
                               borderSide: BorderSide(
-                                  color: Colors.grey.shade500, width: 1.5),
+                                  color: Colors.red, width: 1.5),
                             ),
                             hintStyle: const TextStyle(
                                 color: Colors.grey, fontSize: 16),
@@ -311,13 +310,13 @@ class _NameAddressPageState extends State<NameAddressPage> {
                           borderRadius:
                               const BorderRadius.all(Radius.circular(10)),
                           borderSide: BorderSide(
-                              color: Colors.grey.shade500, width: 1.5),
+                              color: Colors.red, width: 1.5),
                         ),
                         focusedErrorBorder: OutlineInputBorder(
                           borderRadius:
                               const BorderRadius.all(Radius.circular(10)),
                           borderSide: BorderSide(
-                              color: Colors.grey.shade500, width: 1.5),
+                              color: Colors.red, width: 1.5),
                         ),
                         hintStyle:
                             const TextStyle(color: Colors.grey, fontSize: 16),

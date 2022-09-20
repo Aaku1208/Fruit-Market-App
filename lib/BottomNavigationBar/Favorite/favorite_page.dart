@@ -13,6 +13,15 @@ class FavoritePage extends StatefulWidget {
 class _FavoritePageState extends State<FavoritePage> {
 
   bool favr = false;
+
+  int counter=0;
+  increment(){
+    counter++;
+  }
+  decrement(){
+    counter--;
+  }
+
   @override
   void initState() {
     // TODO: implement initState
@@ -148,48 +157,62 @@ class _FavoritePageState extends State<FavoritePage> {
                                   Row(
                                     children: [
                                       /// -
-                                      Container(
-                                        height: 25,
-                                        width: 25,
-                                        decoration: BoxDecoration(
-                                          color: Colors.white,
-                                          borderRadius: const BorderRadius.all(Radius.circular(7)),
-                                          border: Border.all(
-                                            color: Colors.black54,
-                                            width: 1.6,
+                                      GestureDetector(
+                                        onTap:(){
+                                          decrement();
+                                          setState(() {});
+                                          },
+                                        child: Container(
+                                          height: 25,
+                                          width: 25,
+                                          decoration: BoxDecoration(
+                                            color: Colors.white,
+                                            borderRadius: const BorderRadius.all(Radius.circular(7)),
+                                            border: Border.all(
+                                              color: Colors.black54,
+                                              width: 1.6,
+                                            ),
                                           ),
-                                        ),
-                                        child: Row(
-                                          mainAxisAlignment: MainAxisAlignment.center,
-                                          children: [
-                                            Icon(Icons.remove,size: 15),
-                                          ],
+                                          child: Row(
+                                            mainAxisAlignment: MainAxisAlignment.center,
+                                            children: [
+                                              Icon(Icons.remove,size: 15),
+                                            ],
+                                          ),
                                         ),
                                       ),
                                       SizedBox(width: 10),
                                       Row(
                                         children: [
-                                          Text("2")
+                                          Text(counter.toString())
                                         ],
                                       ),
                                       SizedBox(width: 10),
                                       /// +
-                                      Container(
-                                        height: 25,
-                                        width: 25,
-                                        decoration: BoxDecoration(
-                                          color: Colors.white,
-                                          borderRadius: const BorderRadius.all(Radius.circular(7)),
-                                          border: Border.all(
-                                            color: Colors.black54,
-                                            width: 1.6,
+                                      GestureDetector(
+                                        onTap: (){
+                                          increment();
+                                          setState(() {
+
+                                          });
+                                        },
+                                        child: Container(
+                                          height: 25,
+                                          width: 25,
+                                          decoration: BoxDecoration(
+                                            color: Colors.white,
+                                            borderRadius: const BorderRadius.all(Radius.circular(7)),
+                                            border: Border.all(
+                                              color: Colors.black54,
+                                              width: 1.6,
+                                            ),
                                           ),
-                                        ),
-                                        child: Row(
-                                          mainAxisAlignment: MainAxisAlignment.center,
-                                          children: [
-                                            Icon(Icons.add,size: 15),
-                                          ],
+                                          child: Row(
+                                            mainAxisAlignment: MainAxisAlignment.center,
+                                            children: [
+                                              Icon(Icons.add,size: 15),
+                                            ],
+                                          ),
                                         ),
                                       ),
                                     ],

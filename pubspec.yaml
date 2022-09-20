@@ -87,6 +87,7 @@ flutter:
   assets:
     - assets/image/
     - assets/onboarding/
+    - assets/Wallet&Card/
 
   #   - images/a_dot_ham.jpeg
 

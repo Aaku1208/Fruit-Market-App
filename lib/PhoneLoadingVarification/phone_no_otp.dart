@@ -33,6 +33,7 @@ class _PhoneNoAndOTPState extends State<PhoneNoAndOTP> {
   void SignOutME() async{
     await _auth.signOut();
   }
+
   void signInWithPhoneAuthCred(AuthCredential phoneAuthCredential) async
   {
 
@@ -285,7 +286,9 @@ class _PhoneNoAndOTPState extends State<PhoneNoAndOTP> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: currentState == LoginScreen.SHOW_MOBILE_ENTER_WIDGET ? showMobilePhoneWidget(context) : showOtpFormWidget(context),
+      body: currentState == LoginScreen.SHOW_MOBILE_ENTER_WIDGET
+          ? showMobilePhoneWidget(context)
+          : showOtpFormWidget(context),
     );
   }
 }

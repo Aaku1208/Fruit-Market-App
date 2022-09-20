@@ -29,15 +29,17 @@ class _SplashScreenState extends State<SplashScreen> {
       context,
       MaterialPageRoute(
         builder: (context) {
+          /// Facebook name email
           if (LogInSharedPreferences.getFbName != '' &&
               LogInSharedPreferences.getFbName != null &&
               LogInSharedPreferences.getFbEmail != '' &&
               LogInSharedPreferences.getFbEmail != null) {
             return const WelcomePage();
+            /// Google Name
           } else if (LogInSharedPreferences.getGlName != '' &&
               LogInSharedPreferences.getGlName != null) {
             return const WelcomePage();
-            /// OTP
+            /// OTP FirstName,SecondName,Email
           } else if (LogInSharedPreferences.getFName != '' &&
               LogInSharedPreferences.getFName != null &&
               LogInSharedPreferences.getSName != '' &&
